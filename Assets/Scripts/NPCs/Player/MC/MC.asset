@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f648d7fd9785fe42a400b4ee26b310c, type: 3}
+  m_Name: MC
+  m_EditorClassIdentifier: 
+  playerGameObject: {fileID: 8570304448681357180, guid: 6d5d3fb334b808c489e2eb82ab2bd54b, type: 3}
+  partyIcon: {fileID: 0}
+  name: MC
+  baseHealth: 100
+  currentHealth: 100
+  baseAttack: 5
+  baseDefence: 10
+  baseCritRate: 10
+  baseCritDamage: 10
+  skillSet:
+  - {fileID: 11400000, guid: eeb30a0a0a64fb9459fe45bd7d2d4c63, type: 2}
+  - {fileID: 11400000, guid: 63f37c53ccb01f344b6c59e17f1f5f41, type: 2}
