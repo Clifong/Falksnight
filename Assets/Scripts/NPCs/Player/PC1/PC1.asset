@@ -16,7 +16,7 @@ MonoBehaviour:
   partyIcon: {fileID: 0}
   name: PC1
   baseHealth: 100
-  currentHealth: 100
+  currentHealth: 20
   baseAttack: 5
   baseDefence: 0
   baseCritRate: 0

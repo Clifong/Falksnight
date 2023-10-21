@@ -34,6 +34,10 @@ public class EnemyManager : MonoBehaviour
         return this.enemy;
     }
 
+    public List<Enemy> ReturnAllEnemies() {
+        return allEnemies;
+    }
+
     public void AllEnemiesAttack(){
         StartCoroutine(WaitForAMoment());
     }

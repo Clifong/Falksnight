@@ -8,6 +8,7 @@ TagManager:
   - PC
   - Enemy
   - target
+  - Boss
   layers:
   - Default
   - TransparentFX

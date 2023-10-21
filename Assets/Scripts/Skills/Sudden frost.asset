@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1df7e5df9308d094385e42ba7b0aa340, type: 3}
-  m_Name: IceAttack1
+  m_Name: Sudden frost
   m_EditorClassIdentifier: 
-  name: Ice blast
-  description: Deals ice damage
-  attack: 5
+  name: Sudden frost
+  description: 
+  attack: 999

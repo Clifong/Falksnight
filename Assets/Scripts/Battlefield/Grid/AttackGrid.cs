@@ -5,7 +5,18 @@ using UnityEngine.InputSystem;
 
 public class AttackGrid : MonoBehaviour
 {
-    // private void OnMouseDown(){
-    //     Debug.Log("WORK");
-    // }
+    [SerializeField]
+    private PlantSO plant;
+
+    private void OnMouseDown(){
+        if (plant == null) {
+            PlantUIManager.plantUIManager.EnableContentPanel(this);
+        } else {
+            PlantUIManager.plantUIManager.EnablePlantGrowthPanel();
+        }
+    }
+
+    public void SetPlant(PlantSO plant) {
+        this.plant = plant;
+    }
 }

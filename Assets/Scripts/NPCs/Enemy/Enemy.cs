@@ -41,10 +41,22 @@ public abstract class Enemy : MonoBehaviour
     //Want to add flexibility to attack style
     public virtual void Attack(){
         int randomInteger = Random.Range(0, enemySO.skillSet.Count); 
-        Player attackPlayer = CharacterManager.characterManager.returnAPlayer();
-        if (attackPlayer != null){
-            SkillTextboxManager.skillTextboxManager.ChangeText(enemySO.skillSet[randomInteger].name);
-            attackPlayer.GetDamaged(enemySO.skillSet[randomInteger].attack + currentAttack);
+        if (enemySO.skillSet[randomInteger].allEnemy) {
+            List<Player> allPlayer = CharacterManager.characterManager.returnAllPlayers();
+            foreach (Player player in allPlayer.ToArray())
+            {
+                if (player != null){
+                    SkillTextboxManager.skillTextboxManager.ChangeText(enemySO.skillSet[randomInteger].name);
+                    player.GetDamaged(enemySO.skillSet[randomInteger].attack + currentAttack);
+                }
+            }
+        }
+        else {
+            Player attackPlayer = CharacterManager.characterManager.returnAPlayer();
+            if (attackPlayer != null){
+                SkillTextboxManager.skillTextboxManager.ChangeText(enemySO.skillSet[randomInteger].name);
+                attackPlayer.GetDamaged(enemySO.skillSet[randomInteger].attack + currentAttack);
+            }
         }
     }
 

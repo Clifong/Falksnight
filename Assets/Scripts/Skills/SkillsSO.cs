@@ -9,4 +9,5 @@ public class SkillsSO : ScriptableObject
     [TextAreaAttribute]
     public string description;
     public int attack;
+    public bool allEnemy;
 }

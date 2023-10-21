@@ -18,6 +18,10 @@ public class EnergyGauge : MonoBehaviour
         gaugeSlider.value = 0;
     }
 
+    public int getCurrentEnergy() {
+        return currentEnergy;
+    }
+
     public void IncreaseGauge(int value){
         currentEnergy += value;
         gaugeSlider.value = (float)currentEnergy/(float)maxEnergy;

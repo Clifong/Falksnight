@@ -118,4 +118,11 @@ public class CharacterManager : MonoBehaviour{
         return allPartyMembers[randomInteger];
     }
 
+    public List<Player> returnAllPlayers() {
+        if (allPartyMembers.Count == 0){
+            return null;
+        }
+        return allPartyMembers;
+    }
+
 }

@@ -80,12 +80,22 @@ public abstract class Player: MonoBehaviour
 
     //Want to add flexibility to attack style
     protected virtual void Attack(){
-        if (targetEnemy != null){
+        if (skillsToUse.allEnemy){
+            List<Enemy> allEnemies = EnemyManager.enemyManager.ReturnAllEnemies();
             SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
-            targetEnemy.GetDamaged(skillsToUse.attack + currentAttack);
+            foreach (Enemy enemy in allEnemies.ToArray())
+            {
+                enemy.GetDamaged(skillsToUse.attack + currentAttack);
+            }
         }
-        else{
-            currentAttack += skillsToUse.attack;
+        else {
+            if (targetEnemy != null){
+                SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
+                targetEnemy.GetDamaged(skillsToUse.attack + currentAttack);
+            }
+            else{
+                currentAttack += skillsToUse.attack;
+            }
         }
     }
 
