@@ -16,7 +16,7 @@ MonoBehaviour:
   partyIcon: {fileID: 0}
   name: MC
   baseHealth: 100
-  currentHealth: 9
+  currentHealth: 4
   baseAttack: 5
   baseDefence: 10
   baseCritRate: 10

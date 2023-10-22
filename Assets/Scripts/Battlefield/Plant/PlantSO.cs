@@ -7,6 +7,7 @@ public class PlantSO  : ScriptableObject
 {
     public GameObject plantGameObject;
     public string name;
+    public string description;
     public int cost;
     public int baseAttack;
 }

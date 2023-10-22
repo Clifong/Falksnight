@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     }
 
     public void SaveData(GameData gameData){
-        gameData.playerPosition = rb.position;
+        if (rb != null) {
+            gameData.playerPosition = rb.position;
+        }
     }
 }

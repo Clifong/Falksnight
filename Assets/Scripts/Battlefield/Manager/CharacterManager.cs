@@ -99,6 +99,7 @@ public class CharacterManager : MonoBehaviour{
         allPartyMembers.Remove(player);
         totalNumberOfPartyMembers = allPartyMembers.Count;
         if (totalNumberOfPartyMembers == 0){
+            LevelManager.LoadLevel(this, "Lose");
         }
         else{
             TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(allPartyMembers[0]);

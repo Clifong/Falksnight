@@ -8,7 +8,8 @@ public class PlantUIManager : MonoBehaviour
     // private Player playerSelected;
     public GameObject plantBoxIcon;
     public GameObject UIPanel;
-    public GameObject plantUIPanel;
+    public PlantInfoUI plantInfoUIScript;
+
     
     [SerializeField]
     private Transform contentTransform;
@@ -26,6 +27,10 @@ public class PlantUIManager : MonoBehaviour
         UIPanel.SetActive(false);
     }
 
+    public void DisablePlantInfoPanel() {
+        plantInfoUIScript.DisablePlantInfoPanel();
+    }
+
     public void EnableContentPanel(AttackGrid attackGrid) {
         foreach (GameObject icon in spawnedplantBoxIcon)
         {
@@ -40,7 +45,7 @@ public class PlantUIManager : MonoBehaviour
         }
     }
 
-    public void EnablePlantGrowthPanel() {
-        plantUIPanel.SetActive(true);
+    public void EnablePlantInfoPanel(AttackGrid attackGrid) {
+        plantInfoUIScript.SetData(attackGrid);
     }
 }

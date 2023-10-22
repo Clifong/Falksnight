@@ -124,8 +124,8 @@ TextureImporter:
         y: 192
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -158,8 +158,8 @@ TextureImporter:
         y: 192
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
@@ -184,12 +184,12 @@ TextureImporter:
       name: GroundChina1_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 128
+        y: 192
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 8
+      pivot: {x: 1, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,6 +197,69 @@ TextureImporter:
       bones: []
       spriteID: 97f04ab2035418c4ca7cc020326d749e
       internalID: 1194568705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundChina1_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c62733a97c83afa43bed18388b1a1baa
+      internalID: 1595800676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundChina1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8c311c99fbb8e4ca149f4b76aac631
+      internalID: -794591982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundChina1_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55040d68ac0dd114795b046ffb247ff5
+      internalID: 361710103
       vertices: []
       indices: 
       edges: []
@@ -215,6 +278,9 @@ TextureImporter:
       GroundChina1_0: -1678073458
       GroundChina1_1: 65418165
       GroundChina1_2: 1194568705
+      GroundChina1_3: 1595800676
+      GroundChina1_4: -794591982
+      GroundChina1_5: 361710103
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
