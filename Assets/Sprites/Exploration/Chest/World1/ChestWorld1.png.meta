@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e4beb6ceefd33d4688945f4c9ca737f
+guid: b3513668b54e30e459d2156a4e978686
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 90
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,149 +117,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GroundChina1_0
+      name: ChestWorld1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 64
-        height: 64
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 0, y: 32}
-        - {x: -8, y: 32}
-        - {x: -19, y: 25}
-        - {x: -28, y: 19}
-        - {x: -31, y: 16}
-        - {x: -29, y: 12}
-        - {x: -16, y: 7}
-        - {x: 0, y: 0}
-        - {x: 17, y: 8}
-        - {x: 32, y: 15}
-        - {x: 32, y: 21}
-        - {x: 26, y: 24}
-        - {x: 7, y: 32}
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46a253a0535716f4ea85dc349a3df112
-      internalID: -1678073458
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GroundChina1_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 192
-        width: 64
-        height: 64
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape:
-      - - {x: 12, y: 20}
-        - {x: -11, y: 20}
-        - {x: -32, y: 4}
-        - {x: -9, y: -8}
-        - {x: 1, y: -12}
-        - {x: 26, y: -1}
-        - {x: 32, y: 3}
-        - {x: 32, y: 9}
-        - {x: 21, y: 16}
-      tessellationDetail: 0
-      bones: []
-      spriteID: b420d8df46946b4449776312acec1112
-      internalID: 65418165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GroundChina1_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        y: 0
+        width: 140
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97f04ab2035418c4ca7cc020326d749e
-      internalID: 1194568705
+      spriteID: 80f4ac614a7897b42931272145398f44
+      internalID: 236034338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GroundChina1_3
+      name: ChestWorld1_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 140
+        y: 0
+        width: 140
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c62733a97c83afa43bed18388b1a1baa
-      internalID: 1595800676
+      spriteID: fc17886e7f38fe246a4b0b2d9056b244
+      internalID: -1847622957
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GroundChina1_4
+      name: ChestWorld1_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 280
+        y: 0
+        width: 140
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e8c311c99fbb8e4ca149f4b76aac631
-      internalID: -794591982
+      spriteID: 1501c51cbe7b0ee4f98883ab13b316c1
+      internalID: 158715228
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GroundChina1_5
+      name: ChestWorld1_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 420
+        y: 0
+        width: 140
+        height: 180
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55040d68ac0dd114795b046ffb247ff5
-      internalID: 361710103
+      spriteID: d412891e8ad79af44afe9e8bc14e85f5
+      internalID: -675915703
       vertices: []
       indices: 
       edges: []
@@ -275,12 +211,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      GroundChina1_0: -1678073458
-      GroundChina1_1: 65418165
-      GroundChina1_2: 1194568705
-      GroundChina1_3: 1595800676
-      GroundChina1_4: -794591982
-      GroundChina1_5: 361710103
+      ChestWorld1_0: 236034338
+      ChestWorld1_1: -1847622957
+      ChestWorld1_2: 158715228
+      ChestWorld1_3: -675915703
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
