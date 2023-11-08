@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Plant1
   m_EditorClassIdentifier: 
   plantGameObject: {fileID: 555551532237572653, guid: f1a6f93d09ec94b459466b49cc6e5cc8, type: 3}
+  plantIcon: {fileID: -288792468, guid: bd3620d0a26fea240bf2415bd4ada6ad, type: 3}
   name: Red plant
+  description: 
   cost: 1
   baseAttack: 5

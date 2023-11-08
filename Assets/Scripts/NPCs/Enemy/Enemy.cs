@@ -60,12 +60,12 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void GetDamaged(int damage){
+    public virtual void GetDamaged(int damage, bool critOrNot){
         currentHealth -= damage;
         if (currentHealth <= 0){
             Die();
         }
-        AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, damage);
+        AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, damage, critOrNot);
     }
 
     protected virtual void Die(){

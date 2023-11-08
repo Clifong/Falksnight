@@ -45,11 +45,12 @@ public abstract class Player: MonoBehaviour
     }
 
     public virtual void GetDamaged(int damage){
-        currentHealth -= (int)Mathf.Floor((float)(damage - (double)currentDefence * 0.5));
+        int trueDamage = Mathf.Max(1, (int)Mathf.Floor((float)(damage - (double)currentDefence * 0.5)));
+        currentHealth -= trueDamage;
         if (currentHealth <= 0){
             Die();
         }
-        AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, damage);
+        AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, trueDamage, false);
     }
 
     public float GetCurrentHealthRatio(){
@@ -80,18 +81,26 @@ public abstract class Player: MonoBehaviour
 
     //Want to add flexibility to attack style
     protected virtual void Attack(){
+        int attackDamage = skillsToUse.attack + currentAttack;
+        bool critOrNot = false;
+
+        if(Random.Range(1, 100) <= currentCritRate) {
+            critOrNot = true;
+            attackDamage = (int)Mathf.Floor(attackDamage * (100 + currentCritDamage)/100);
+        }
+
         if (skillsToUse.allEnemy){
             List<Enemy> allEnemies = EnemyManager.enemyManager.ReturnAllEnemies();
             SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
             foreach (Enemy enemy in allEnemies.ToArray())
             {
-                enemy.GetDamaged(skillsToUse.attack + currentAttack);
+                enemy.GetDamaged(attackDamage, critOrNot);
             }
         }
         else {
             if (targetEnemy != null){
                 SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
-                targetEnemy.GetDamaged(skillsToUse.attack + currentAttack);
+                targetEnemy.GetDamaged(attackDamage, critOrNot);
             }
             else{
                 currentAttack += skillsToUse.attack;

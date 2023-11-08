@@ -28,6 +28,7 @@ public class PlantBoxIcon : MonoBehaviour
 
     public void SetData(PlantSO plantSO, AttackGrid grid) {
         gridBox = grid;
+        icon.sprite = plantSO.plantIcon;
         this.plantSO = plantSO;
         this.nameText.text = plantSO.name;
         this.costText.text = plantSO.cost.ToString();

@@ -64,7 +64,13 @@ public class AttackUIManager : MonoBehaviour
         attackUICanvas.enabled = true;
     }
 
-    public void InstantiateDamageText(Vector2 pos, int damage){
+    public void InstantiateDamageText(Vector2 pos, int damage, bool critOrNot){
+        if (critOrNot) {
+            damageText.color = new Color(1,0,0,1);
+        }
+        else {
+            damageText.color = new Color(1,1,1,1);
+        }
         damageText.text = damage.ToString();
         Instantiate(damageTextParent, pos, Quaternion.identity);
     }

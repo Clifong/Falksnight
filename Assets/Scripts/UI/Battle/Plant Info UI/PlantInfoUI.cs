@@ -15,6 +15,7 @@ public class PlantInfoUI : MonoBehaviour
         gameObject.SetActive(true);
         this.attackGrid = attackGrid;
         PlantSO plant = attackGrid.ReturnPlantSO();
+        image.sprite = plant.plantIcon;
         name.text = plant.name;
         description.text = plant.description;
     }

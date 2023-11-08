@@ -16,7 +16,11 @@ public class PlayerSO : ScriptableObject
     public int baseCritDamage;
     public List<SkillsSO> skillSet;
 
-    public float getHealthRatio(){
+    public float getHealthRatio() {
         return (float)currentHealth/(float)baseHealth;
+    }
+
+    public void RecoverHealth(int recoverHealth) {
+        currentHealth = Mathf.Min(currentHealth + recoverHealth, baseHealth);
     }
 }

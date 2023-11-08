@@ -25,6 +25,11 @@ public class InventoryManager : MonoBehaviour
         allItems = playerData.inventoryItems;
     }
 
+    public void RemoveItem(Item item) {
+        allItems.Remove(item);
+        playerData.inventoryItems = allItems;
+    }
+
     public void AddNewItems(List<Item> newItems){
         foreach (Item item in newItems)
         {

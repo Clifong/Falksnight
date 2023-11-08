@@ -172,6 +172,97 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: GroundChina2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 31, y: 16}
+        - {x: -31, y: 15}
+        - {x: -32, y: -18}
+        - {x: -6, y: -29}
+        - {x: 8, y: -27}
+        - {x: 30, y: -18}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5871463d795943c4eb551c9ffe25989e
+      internalID: -1445516273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundChina2_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8, y: 32}
+        - {x: -23, y: 24}
+        - {x: -30, y: 20}
+        - {x: -32, y: 18}
+        - {x: -32, y: -22}
+        - {x: -28, y: -24}
+        - {x: -20, y: -32}
+        - {x: 14, y: -32}
+        - {x: 32, y: -26}
+        - {x: 32, y: 21}
+        - {x: 7, y: 32}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c15cadb3031feb47b3adaa0a34a9895
+      internalID: 1115543283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundChina2_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 8
+      pivot: {x: 1, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4, y: 1}
+        - {x: -23, y: 8}
+        - {x: -30, y: 20}
+        - {x: -32, y: 18}
+        - {x: -32, y: -22}
+        - {x: -28, y: -24}
+        - {x: -20, y: -32}
+        - {x: 14, y: -32}
+        - {x: 32, y: -26}
+        - {x: 32, y: 21}
+        - {x: 22, y: 12}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edf5fa0f88df0a4c885bf5e1c91ae3a
+      internalID: -1145959316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -185,6 +276,9 @@ TextureImporter:
     nameFileIdTable:
       GroundChina2_0: 1093582115
       GroundChina2_1: 1489057732
+      GroundChina2_2: -1445516273
+      GroundChina2_3: 1115543283
+      GroundChina2_4: -1145959316
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

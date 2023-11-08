@@ -46,11 +46,16 @@ public class EnemyManager : MonoBehaviour
         allEnemies.Remove(enemy);
         if (allEnemies.Count == 0){
             EnemyPartyManager.enemyPartyManager.SetEnemyDead();
-            LevelManager.WinBattle(this);
+            StartCoroutine(WaitForAMomentWin());
         }
         else{
             TargetingManagerEnemy.targetingManagerEnemy.SetSelectedEnemy(allEnemies[0]);
         }
+    }
+
+    private IEnumerator WaitForAMomentWin(){
+        yield return new WaitForSeconds(1);
+        WinUIManager.winUIManager.ShowWinPanel();
     }
 
     private IEnumerator WaitForAMoment(){

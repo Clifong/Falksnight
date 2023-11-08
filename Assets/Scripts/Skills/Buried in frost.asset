@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Buried in frost
   description: 
-  attack: 60
+  attack: 1
   allEnemy: 1

@@ -24,11 +24,13 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
     }
 
     public void LoadData(GameData gameData){
-        gameData.chestOpenedDict.TryGetValue(id, out opened);
-        if (opened) {
+        this.opened = gameData.chestOpenedDict.TryGetValue(id, out opened);
+        if (this.opened) {
             Destroy(this.gameObject);
         }
-        opened = false;
+        else {
+            opened = false;
+        }
     }
 
     public void SaveData(GameData gameData){
@@ -47,6 +49,8 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
     }
 
     public void Interact() {
+        InventoryManager.inventoryManager.AddNewItems(chestItems);
+        opened = true;
         anime.SetTrigger("Open");
         Destroy(this);
     }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlantSO  : ScriptableObject
 {
     public GameObject plantGameObject;
+    public Sprite plantIcon;
     public string name;
     public string description;
     public int cost;

@@ -20,5 +20,5 @@ MonoBehaviour:
   baseCritRate: 10
   baseCritDamage: 10
   skillSet:
-  - {fileID: 11400000, guid: 0206c19e31880944b8958ebf84aaed1b, type: 2}
   - {fileID: 11400000, guid: 1dade162fd19b354785bed2abfcd7238, type: 2}
+  - {fileID: 11400000, guid: eeb30a0a0a64fb9459fe45bd7d2d4c63, type: 2}

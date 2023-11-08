@@ -16,10 +16,10 @@ MonoBehaviour:
   partyIcon: {fileID: 0}
   name: PC1
   baseHealth: 100
-  currentHealth: 20
+  currentHealth: 4
   baseAttack: 5
-  baseDefence: 0
-  baseCritRate: 0
-  baseCritDamage: 0
+  baseDefence: 10
+  baseCritRate: 10
+  baseCritDamage: 10
   skillSet:
   - {fileID: 11400000, guid: eeb30a0a0a64fb9459fe45bd7d2d4c63, type: 2}
