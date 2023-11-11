@@ -22,7 +22,7 @@ public class PlayerPartyManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public List<PlayerSO> returnPartyMembers(){
+    public List<PlayerSO> ReturnPartyMembers(){
         return partyInfo;
     }
 

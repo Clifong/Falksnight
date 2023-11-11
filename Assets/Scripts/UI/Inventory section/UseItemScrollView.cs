@@ -9,7 +9,7 @@ public class UseItemScrollView : MonoBehaviour
     private List<GameObject> currentlyInstantiatedImages = new List<GameObject>();
     
     public void EnableObject() {
-        List<PlayerSO> partyInfo = PlayerPartyManager.playerPartyManager.returnPartyMembers();
+        List<PlayerSO> partyInfo = PlayerPartyManager.playerPartyManager.ReturnPartyMembers();
         foreach (GameObject icon in currentlyInstantiatedImages){
             Destroy(icon);
         }

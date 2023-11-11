@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: MC
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 8570304448681357180, guid: 6d5d3fb334b808c489e2eb82ab2bd54b, type: 3}
-  partyIcon: {fileID: 0}
+  partyIcon: {fileID: 4869838529124533317, guid: bc4e875af678a244b827b4edfa0ad650, type: 3}
   name: MC
   baseHealth: 100
-  currentHealth: 1
+  currentHealth: 11
   baseAttack: 5
   baseDefence: 10
   baseCritRate: 10
