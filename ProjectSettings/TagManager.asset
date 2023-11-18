@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - target
   - Boss
+  - PlayerCanvas
+  - Ebonstatue
   layers:
   - Default
   - TransparentFX

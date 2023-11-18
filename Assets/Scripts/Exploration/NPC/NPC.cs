@@ -6,8 +6,13 @@ public class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject interactCanvas;
+    [SerializeField]
+    private TextAsset dialogueText;
+    [SerializeField]
+    private string name;
+
     public void Interact() {
-        Debug.Log("NPC");
+        DialogueManager.dialogueManager.StartDialogue(dialogueText, name);
     }
 
     public void ShowInteractCanvas() {

@@ -8,7 +8,7 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
     private string id;
     [SerializeField]
     private GameObject interactCanvas;
-    private bool opened;
+    private bool opened = false;
     private Animator anime;
     public List<Item> chestItems;
 
@@ -24,7 +24,7 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
     }
 
     public void LoadData(GameData gameData){
-        this.opened = gameData.chestOpenedDict.TryGetValue(id, out opened);
+        gameData.chestOpenedDict.TryGetValue(id, out opened);
         if (this.opened) {
             Destroy(this.gameObject);
         }
@@ -36,7 +36,7 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
     public void SaveData(GameData gameData){
         if (gameData.chestOpenedDict.ContainsKey(id)) {
             gameData.chestOpenedDict.Remove(id);
-        }
+        } 
         gameData.chestOpenedDict.Add(id, opened);
     }
 
