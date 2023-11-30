@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
     protected int currentDefence;
     protected int currentCritRate;
     protected int currentCritDamage;
+    protected int enemyExp;
     protected EnemyUICanvas enemyUICanvas;
 
     // Start is called before the first frame update
@@ -23,6 +24,7 @@ public abstract class Enemy : MonoBehaviour
         currentDefence = enemySO.baseDefence;
         currentCritRate = enemySO.baseCritRate;
         currentCritDamage = enemySO.baseCritDamage;
+        enemyExp = enemySO.CalculateExp();
         enemyUICanvas = GetComponentInChildren<EnemyUICanvas>();
     }
 
@@ -42,7 +44,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void Attack(){
         int randomInteger = Random.Range(0, enemySO.skillSet.Count); 
         if (enemySO.skillSet[randomInteger].allEnemy) {
-            List<Player> allPlayer = CharacterManager.characterManager.returnAllPlayers();
+            List<Player> allPlayer = CharacterManager.characterManager.ReturnAllPlayers();
             foreach (Player player in allPlayer.ToArray())
             {
                 if (player != null){
@@ -52,7 +54,7 @@ public abstract class Enemy : MonoBehaviour
             }
         }
         else {
-            Player attackPlayer = CharacterManager.characterManager.returnAPlayer();
+            Player attackPlayer = CharacterManager.characterManager.ReturnAPlayer();
             if (attackPlayer != null){
                 SkillTextboxManager.skillTextboxManager.ChangeText(enemySO.skillSet[randomInteger].name);
                 attackPlayer.GetDamaged(enemySO.skillSet[randomInteger].attack + currentAttack);
@@ -60,16 +62,19 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void GetDamaged(int damage, bool critOrNot){
+    public virtual void GetDamaged(int damage, bool critOrNot, Player player){
         currentHealth -= damage;
         if (currentHealth <= 0){
-            Die();
+            Die(player.GetPlayerSO());
         }
         AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, damage, critOrNot);
     }
 
-    protected virtual void Die(){
+    protected virtual void Die(PlayerSO playerSO){
         EnemyManager.enemyManager.UpdateList(this);
+        ItemAndEquipmentGainTempManager.itemAndEquipmentGainTempManager.AddTempItem(enemySO.itemDrop);
+        MoneyAndExpManager.moneyAndExpManager.AddMoney(enemySO.returnRandomMoney());
+         MoneyAndExpManager.moneyAndExpManager.AddExp(playerSO, enemyExp);
         // anime.SetBool("die", true);
         Destroy(gameObject);
     }

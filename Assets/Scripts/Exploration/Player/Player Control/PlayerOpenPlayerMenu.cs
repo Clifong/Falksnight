@@ -6,6 +6,7 @@ public class PlayerOpenPlayerMenu : MonoBehaviour
 {
     private void OnOpenPlayerMenu(){
         PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        PlayerMovementDisabler.playerMovementDisabler.ChangeEnable();
         PlayerMenuManager.playerMenuManager.EnableOrDisableCanvas();
     }
 

@@ -94,13 +94,13 @@ public abstract class Player: MonoBehaviour
             SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
             foreach (Enemy enemy in allEnemies.ToArray())
             {
-                enemy.GetDamaged(attackDamage, critOrNot);
+                enemy.GetDamaged(attackDamage, critOrNot, this);
             }
         }
         else {
             if (targetEnemy != null){
                 SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
-                targetEnemy.GetDamaged(attackDamage, critOrNot);
+                targetEnemy.GetDamaged(attackDamage, critOrNot, this);
             }
             else{
                 currentAttack += skillsToUse.attack;

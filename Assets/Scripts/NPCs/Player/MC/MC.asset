@@ -21,6 +21,10 @@ MonoBehaviour:
   baseDefence: 10
   baseCritRate: 10
   baseCritDamage: 10
+  currLevel: 2
+  expNeeded: 43
   skillSet:
   - {fileID: 11400000, guid: 0206c19e31880944b8958ebf84aaed1b, type: 2}
   - {fileID: 11400000, guid: 63f37c53ccb01f344b6c59e17f1f5f41, type: 2}
+  expMultiplier: 1.5
+  currentExp: 152

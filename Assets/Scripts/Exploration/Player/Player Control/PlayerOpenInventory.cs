@@ -6,6 +6,7 @@ public class PlayerOpenInventory : MonoBehaviour
 {
     void OnOpenInventory(){
         PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        PlayerMovementDisabler.playerMovementDisabler.ChangeEnable();
         InventoryManager.inventoryManager.SendDataToInventoryUI();
     }
 

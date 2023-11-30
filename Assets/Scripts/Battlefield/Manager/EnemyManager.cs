@@ -55,6 +55,7 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator WaitForAMomentWin(){
         yield return new WaitForSeconds(1);
+        MoneyAndExpManager.moneyAndExpManager.FinallyAddExp();
         WinUIManager.winUIManager.ShowWinPanel();
     }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     public GameObject itemWithGridImage;
+    public GameObject itemWithGridImageAndName;
     public Sprite itemImage;
     public string name;
     [TextAreaAttribute]

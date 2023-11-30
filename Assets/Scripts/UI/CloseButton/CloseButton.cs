@@ -6,5 +6,6 @@ public class CloseButton : MonoBehaviour
 {
     public void Close(){
         PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        PlayerMovementDisabler.playerMovementDisabler.ChangeEnable();
     }
 }

@@ -6,6 +6,7 @@ public class PlayerOpenParty : MonoBehaviour
 {
     private void OnOpenParty(){
         PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        PlayerMovementDisabler.playerMovementDisabler.ChangeEnable();
         PlayerPartyManager.playerPartyManager.SendPartyMembersDataToUI();
     }
 

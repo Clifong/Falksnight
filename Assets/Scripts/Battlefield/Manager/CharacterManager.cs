@@ -23,15 +23,26 @@ public class CharacterManager : MonoBehaviour{
     }
 
     public void PlayerInstantiationComplete(){
-        GameObject MC = GameObject.FindWithTag("MC");
-        TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(MC.GetComponent<MC>());
+        bool haveMC = false;
+        bool havePC = false;
+        Player pcPlayer = null;
+        Player mcPlayer = null;
         foreach (GameObject player in GameObject.FindGameObjectsWithTag("PC"))
         {
-            allPartyMembers.Add(player.GetComponent<Player>());
+            havePC = true;
+            pcPlayer = player.GetComponent<Player>();
+            allPartyMembers.Add(pcPlayer);
         }
         foreach (GameObject mc in GameObject.FindGameObjectsWithTag("MC"))
         {
-            allPartyMembers.Add(mc.GetComponent<Player>());
+            haveMC = true;
+            mcPlayer = mc.GetComponent<Player>();
+            allPartyMembers.Add(mcPlayer);
+        }
+        if (haveMC) {
+            TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(mcPlayer);
+        } else {
+            TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(pcPlayer);
         }
         totalNumberOfPartyMembers = allPartyMembers.Count;
     }
@@ -111,7 +122,7 @@ public class CharacterManager : MonoBehaviour{
         return allPartyMembers.Count == 0;
     }
 
-    public Player returnAPlayer(){
+    public Player ReturnAPlayer(){
         if (allPartyMembers.Count == 0){
             return null;
         }
@@ -119,7 +130,7 @@ public class CharacterManager : MonoBehaviour{
         return allPartyMembers[randomInteger];
     }
 
-    public List<Player> returnAllPlayers() {
+    public List<Player> ReturnAllPlayers() {
         if (allPartyMembers.Count == 0){
             return null;
         }

@@ -7,7 +7,9 @@ public class PlayerPartyManager : MonoBehaviour
     public static PlayerPartyManager playerPartyManager;
     private static int counter = 0;
     [SerializeField]
-    private List<PlayerSO> partyInfo = new List<PlayerSO>();
+    private List<PlayerSO> activeParty = new List<PlayerSO>();
+    [SerializeField]
+    private List<PlayerSO> reserveParty = new List<PlayerSO>();
 
     void Start()
     {
@@ -22,11 +24,16 @@ public class PlayerPartyManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public void ModifyPartySetup(List<PlayerSO> activeParty, List<PlayerSO> reserveParty) {
+        this.activeParty = activeParty;
+        this.reserveParty = reserveParty;
+    }
+
     public List<PlayerSO> ReturnPartyMembers(){
-        return partyInfo;
+        return activeParty;
     }
 
     public void SendPartyMembersDataToUI(){
-        PartySetupUIManager.partySetupUIManager.InstantiateIcon(partyInfo);
+        PartySetupUIManager.partySetupUIManager.InstantiatePartyIcon(activeParty, reserveParty);
     }
 }

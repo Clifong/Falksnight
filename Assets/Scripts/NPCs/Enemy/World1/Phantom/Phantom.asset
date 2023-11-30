@@ -21,3 +21,8 @@ MonoBehaviour:
   baseCritDamage: 0
   skillSet:
   - {fileID: 11400000, guid: eeb30a0a0a64fb9459fe45bd7d2d4c63, type: 2}
+  itemDrop:
+  - {fileID: 11400000, guid: 0fe64ac7c7919a546aa553900da46bd8, type: 2}
+  - {fileID: 11400000, guid: 0fe64ac7c7919a546aa553900da46bd8, type: 2}
+  minMoneyEarned: 10
+  maxMoneyEarned: 30
