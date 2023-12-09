@@ -41,7 +41,7 @@ public static class LevelManager{
             yield return null;
         }
 
-        DataPersistenceManager.dataPersistenceManager.LoadGame();
+        // DataPersistenceManager.dataPersistenceManager.LoadGame();
     }
 
     public static void Retry(MonoBehaviour mono) {

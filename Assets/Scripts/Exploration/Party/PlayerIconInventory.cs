@@ -14,6 +14,6 @@ public class PlayerIconInventory : PlayerIcon
     }
 
     public void SetSelectedPlayer() {
-        InventoryUIManager.inventoryUIManager.SetSelectedPlayer(playerSO);
+        ItemUIManager.itemUIManager.SetSelectedPlayer(playerSO);
     }
 }

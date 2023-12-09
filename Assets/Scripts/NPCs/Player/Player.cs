@@ -24,12 +24,13 @@ public abstract class Player: MonoBehaviour
     // Start is called before the first frame update
     protected virtual void Initialise()
     {
+        playerSO.Initialise();
         anime = GetComponent<Animator>();
-        currentHealth = playerSO.currentHealth;
-        currentAttack = playerSO.baseAttack;
-        currentDefence = playerSO.baseDefence;
-        currentCritRate = playerSO.baseCritRate;
-        currentCritDamage = playerSO.baseCritDamage;
+        currentHealth = playerSO.currentHealthWithBuffs;
+        currentAttack = playerSO.currentAttackWithBuffs;
+        currentDefence = playerSO.currentDefenceWithBuffs;
+        currentCritRate = playerSO.currentCritRateWithBuffs;
+        currentCritDamage = playerSO.currentCritDamageWithBuffs;
     }
 
     private void Update(){

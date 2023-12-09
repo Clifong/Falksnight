@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerOpenPlayerMenu : MonoBehaviour
 {
     private void OnOpenPlayerMenu(){
-        PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        if (PlayerAttackDisabler.playerAttackDisabler != null) {
+            PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        }
         PlayerMovementDisabler.playerMovementDisabler.ChangeEnable();
         PlayerMenuManager.playerMenuManager.EnableOrDisableCanvas();
     }

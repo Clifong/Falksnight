@@ -17,6 +17,7 @@ public class PlayerMenuManager : MonoBehaviour
     public TextMeshProUGUI expNeededText;
     public TextMeshProUGUI levelText;
     public Slider expSlider;
+    private PlayerSO currentPlayer;
     private List<GameObject> currentlyInstantiatedIcons = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class PlayerMenuManager : MonoBehaviour
         {
             Destroy(icon);
         }
-        List<PlayerSO> allPartyMembers = PlayerPartyManager.playerPartyManager.ReturnPartyMembers();
+        List<PlayerSO> allPartyMembers = PlayerPartyManager.playerPartyManager.ReturnAllPartyMembers();
         if (allPartyMembers.Count > 0) {
             SetPlayerStats(allPartyMembers[0]);
         }
@@ -46,13 +47,15 @@ public class PlayerMenuManager : MonoBehaviour
     }
 
     public void SetPlayerStats(PlayerSO playerSO) {
-        healthText.text = playerSO.currentHealth.ToString() + "/" + playerSO.baseHealth.ToString();
-        attackText.text = playerSO.baseAttack.ToString();
-        defenceText.text = playerSO.baseDefence.ToString();
-        critRateText.text = playerSO.baseCritRate.ToString() + "%";
-        critDamageText.text = playerSO.baseCritDamage.ToString() + "%";
-        levelText.text = "Level: " + playerSO.currLevel.ToString();
-        expNeededText.text = playerSO.expNeeded.ToString() + " Needed";
+        currentPlayer = playerSO;
+        playerSO.GeneralStatsTextInitialization(healthText, attackText, defenceText, critRateText, critDamageText);
+        playerSO.LevelAndExpRequired(levelText, expNeededText);
         expSlider.value = playerSO.ReturnExpRatio();
+        PlayerEquipmentManager.playerEquipmentManager.SetWeaponStats(playerSO.currWeapon);
+    }
+
+    public void SwitchPlayerWeapon(WeaponSO weaponSO) {
+        PlayerEquipmentManager.playerEquipmentManager.SetWeaponStats(weaponSO);
+        currentPlayer.SwitchWeapon(weaponSO);
     }
 }

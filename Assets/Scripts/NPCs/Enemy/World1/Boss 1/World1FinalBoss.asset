@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d097b6b6c406246bdcae7de64395c6, type: 3}
+  m_Name: World1FinalBoss
+  m_EditorClassIdentifier: 
+  enemyGameObject: {fileID: 4785677776017641532, guid: cbd8c0877a1395e45a96d1d8270f4348, type: 3}
+  name: The nightmare
+  baseHealth: 1000
+  baseAttack: 20
+  baseDefence: 10
+  baseCritRate: 10
+  baseCritDamage: 10
+  skillSet:
+  - {fileID: 11400000, guid: 25d9babd71cc29546bfd1fba4ee09f43, type: 2}
+  - {fileID: 11400000, guid: 48e7904a2f94e8248807269625d61ce7, type: 2}
+  - {fileID: 11400000, guid: dfd375ccc8215a947a7db2e67515c93e, type: 2}
+  - {fileID: 11400000, guid: f48f99e32cbbb7f4c93d8bd1e881c9e0, type: 2}
+  itemDrop: []
+  minMoneyEarned: 100
+  maxMoneyEarned: 1000
+  level: 5
+  levelMultiplier: 1
+  levelExponent: 1.5
+  phaseHealth: d0070000b80b0000

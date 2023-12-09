@@ -6,4 +6,6 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     public List<Item> inventoryItems;
+    public List<WeaponSO> equipmentItems;
+    public List<ConfidantItemSO> confidantItems;
 }

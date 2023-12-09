@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerOpenParty : MonoBehaviour
 {
     private void OnOpenParty(){
-        PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        if (PlayerAttackDisabler.playerAttackDisabler != null) {
+            PlayerAttackDisabler.playerAttackDisabler.ChangeEnable();
+        }
         PlayerMovementDisabler.playerMovementDisabler.ChangeEnable();
         PlayerPartyManager.playerPartyManager.SendPartyMembersDataToUI();
     }

@@ -9,6 +9,11 @@ public class InventoryManager : MonoBehaviour
     private static int counter = 0;
     [SerializeField]
     private List<Item> allItems;
+    [SerializeField]
+    private List<WeaponSO> allEquipment;
+    [SerializeField]
+    private List<ConfidantItemSO> allConfidantItems;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +28,18 @@ public class InventoryManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         allItems = playerData.inventoryItems;
+        allEquipment = playerData.equipmentItems;
+        allConfidantItems = playerData.confidantItems;
     }
 
     public void RemoveItem(Item item) {
         allItems.Remove(item);
         playerData.inventoryItems = allItems;
+    }
+
+    public void RemoveConfidantItem(ConfidantItemSO confidantItemSO) {
+        allConfidantItems.Remove(confidantItemSO);
+        playerData.confidantItems = allConfidantItems;
     }
 
     public void AddNewItems(List<Item> newItems){
@@ -39,6 +51,16 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void SendDataToInventoryUI(){
-        InventoryUIManager.inventoryUIManager.InstantiateImage(allItems);
+        ItemUIManager.itemUIManager.InstantiateImage(allItems);
+        EquipmentUIManager.equipmentUIManager.InstantiateImage(allEquipment);
+        ConfidantInventoryUIManager.confidantInventoryUIManager.InstantiateImage(allConfidantItems);
+    }
+
+    public void SendDataToConfidantGiftUI() {
+        ConfidantGiftManager.confidantGiftManager.InstantiateImage(allConfidantItems);
+    }
+
+    public void SendDataToSwitchWeaponUI() {
+        PlayerSwitchWeaponUIManager.playerSwitchWeaponUIManager.InstantiateImage(allEquipment);
     }
 }

@@ -10,7 +10,7 @@ public class ItemIcon : MonoBehaviour
     private GameObject reference;
     
     public void SetData(){
-        InventoryUIManager.inventoryUIManager.SetData(itemData);
+        ItemUIManager.itemUIManager.SetData(itemData);
     }
 
     public void SetReference(GameObject reference) {
@@ -18,6 +18,6 @@ public class ItemIcon : MonoBehaviour
     }
 
     public void SetItemReference() {
-        InventoryUIManager.inventoryUIManager.SetItemReference(itemData, reference);
+        ItemUIManager.itemUIManager.SetItemReference(itemData, reference);
     }
 }

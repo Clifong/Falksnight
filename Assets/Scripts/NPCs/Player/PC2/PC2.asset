@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerGameObject: {fileID: 8434738644037425710, guid: 2650f8dedb0c0c848b4da24944f8b285, type: 3}
   partyIcon: {fileID: 4869838529124533317, guid: 7a6fb1b2dd30caa4886825327382c761, type: 3}
+  confidantIcon: {fileID: 4869838529124533317, guid: a036f4b2ad5e5c14aacb1acfcff1e2ff, type: 3}
   name: PC 2
-  baseHealth: 500
   currentHealth: 366
+  baseHealth: 500
   baseAttack: 20
   baseDefence: 30
   baseCritRate: 10
@@ -27,3 +28,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1dade162fd19b354785bed2abfcd7238, type: 2}
   expMultiplier: 1.5
   currentExp: 100
+  currWeapon: {fileID: 11400000, guid: 226b7ac8f3dbb884886a2a4547f9f458, type: 2}
+  currentHealthWithBuffs: 500
+  currentAttackWithBuffs: 25
+  currentDefenceWithBuffs: 30
+  currentCritRateWithBuffs: 10
+  currentCritDamageWithBuffs: 30
+  relationshipExpRequired: 32000000be000000fa00000058020000b0040000

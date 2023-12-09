@@ -22,7 +22,7 @@ public class PlayerIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         name.text = playerSO.name;
         originalParent = transform.parent.parent;
         healthSlider.value = playerSO.getHealthRatio();
-        healthValue.text = playerSO.currentHealth.ToString() + "/" + playerSO.baseHealth.ToString();
+        playerSO.SetHealthText(healthValue);
     }
 
     public PlayerSO GetPlayerSO() {
@@ -30,8 +30,8 @@ public class PlayerIcon : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
 
     public void OnBeginDrag(PointerEventData eventData){
-        ChangeParent(transform.root);
-        SetObjectParent();
+        ChangeParent(transform.parent);
+        transform.SetParent(transform.parent.parent.parent);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
     }

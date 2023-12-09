@@ -10,6 +10,8 @@ public class PlayerPartyManager : MonoBehaviour
     private List<PlayerSO> activeParty = new List<PlayerSO>();
     [SerializeField]
     private List<PlayerSO> reserveParty = new List<PlayerSO>();
+    [SerializeField]
+    private List<PlayerSO> allParty = new List<PlayerSO>();
 
     void Start()
     {
@@ -21,6 +23,14 @@ public class PlayerPartyManager : MonoBehaviour
         if (PlayerPartyManager.counter == 10){
             PlayerPartyManager.counter = 1;
         }
+        foreach (PlayerSO active in activeParty)
+        {
+            allParty.Add(active);
+        }
+        foreach (PlayerSO reserve in reserveParty)
+        {
+            allParty.Add(reserve);
+        }
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -31,6 +41,10 @@ public class PlayerPartyManager : MonoBehaviour
 
     public List<PlayerSO> ReturnPartyMembers(){
         return activeParty;
+    }
+
+    public List<PlayerSO> ReturnAllPartyMembers() {
+        return allParty;
     }
 
     public void SendPartyMembersDataToUI(){

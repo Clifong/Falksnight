@@ -5,6 +5,6 @@ using UnityEngine;
 public class UseButton : MonoBehaviour
 {
     public void Consume() {
-        InventoryUIManager.inventoryUIManager.Consume();
+        ItemUIManager.itemUIManager.Consume();
     }
 }
