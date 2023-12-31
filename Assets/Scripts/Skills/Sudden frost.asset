@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Sudden frost
   m_EditorClassIdentifier: 
   name: Sudden frost
-  description: 
+  description: Deals massive damage to a single enemy
   attack: 999
+  allEnemy: 0

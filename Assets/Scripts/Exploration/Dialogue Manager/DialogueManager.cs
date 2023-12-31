@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
     private PlayerAttack playerAttackScript;
     private Canvas playerCanvas;
     private bool choiceMaking;
+    private NPC currentNPC;
 
     private void Awake() {
         if (dialogueManager != null) {
@@ -56,7 +57,8 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(TextAsset inkJson, string name) {
+    public void StartDialogue(NPC npc, TextAsset inkJson, string name) {
+        currentNPC = npc;
         playerMovementScript.enabled = false;
         playerCanvas.enabled = false;
         playerAttackScript.enabled = false;
@@ -64,6 +66,7 @@ public class DialogueManager : MonoBehaviour
         currentStory = new Story(inkJson.text);
         dialogueIsPlaying = true;
         dialogueCanvas.enabled = true;
+        choiceMaking = false;
         ContinueStory();
     }
 
@@ -74,12 +77,16 @@ public class DialogueManager : MonoBehaviour
         playerCanvas.enabled = true;
         dialogueCanvas.enabled = false;
         dialogueIsPlaying = false;
+        currentNPC.EndDialogueEvent();
     }
 
     private void ContinueStory() {
+        Debug.Log(choiceMaking);
         if (currentStory.canContinue) {
             dialogueText.text = currentStory.Continue();
-            DisplayChoices();
+            if (currentStory.currentChoices.Count != 0) {
+                DisplayChoices();
+            }
         }
         else {
             if (!choiceMaking) {

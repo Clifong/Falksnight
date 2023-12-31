@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Ice blast
   m_EditorClassIdentifier: 
   name: Ice blast
-  description: Deals ice damage
+  description: Deals ice damage to a single target
   attack: 5
+  allEnemy: 0

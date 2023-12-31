@@ -37,6 +37,7 @@ public class ItemUIManager : MonoBehaviour
         {
             GameObject instantiatedGrid = Instantiate(item.itemWithGridImage, panel);
             instantiatedGrid.GetComponent<ItemIcon>().SetReference(instantiatedGrid);
+            SetData(items[0]);
             currentlyInstantiatedImages.Add(instantiatedGrid);
         }
     }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Mifune
   m_EditorClassIdentifier: 
   name: Mifune
-  description: 
+  description: Deals dark damage to a single enemy
   attack: 1
   allEnemy: 0

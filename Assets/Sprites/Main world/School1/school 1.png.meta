@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -159,32 +159,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: school 1_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ac74aea69ad222468aab51ad30a8779
-      internalID: -562947141
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: school 1_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 128
+        x: 192
+        y: 192
         width: 64
         height: 64
       alignment: 0
@@ -194,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2574c36b9a0c6524491589cacda63cb2
-      internalID: 920705867
+      spriteID: a4f033c19348de44dad07cd36d7e64de
+      internalID: 1920156348
       vertices: []
       indices: 
       edges: []
@@ -205,7 +184,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -215,8 +194,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e5c48218820c9f438018c417c91ee42
-      internalID: -1008542073
+      spriteID: 05de03988120a7b4eba91f811ac22e5b
+      internalID: 1382942847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: school 1_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812c9932ef96ea7498bc1f008c632c85
+      internalID: 324015507
       vertices: []
       indices: 
       edges: []
@@ -234,9 +234,9 @@ TextureImporter:
     nameFileIdTable:
       school 1_0: 1537871158
       school 1_1: 1955783554
-      school 1_2: -562947141
-      school 1_3: 920705867
-      school 1_4: -1008542073
+      school 1_2: 324015507
+      school 1_3: 1920156348
+      school 1_4: 1382942847
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

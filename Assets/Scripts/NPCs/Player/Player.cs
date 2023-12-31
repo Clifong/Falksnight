@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum Actions {
     ATTACK, 
-    GUARD
+    GUARD,
+    IDLE,
     };
 public abstract class Player: MonoBehaviour
 {
@@ -20,10 +21,12 @@ public abstract class Player: MonoBehaviour
     protected int currentCritDamage;
     protected SkillsSO skillsToUse;
     protected Enemy targetEnemy;
+    private SkillIcon skillIcon;
 
     // Start is called before the first frame update
     protected virtual void Initialise()
     {
+        allPossibleActions = Actions.IDLE;
         playerSO.Initialise();
         anime = GetComponent<Animator>();
         currentHealth = playerSO.currentHealthWithBuffs;
@@ -42,7 +45,18 @@ public abstract class Player: MonoBehaviour
     }
 
     public void SetAction(Actions action){
+        if (action == Actions.GUARD) {
+            skillsToUse = null;
+            if (skillIcon != null) {
+                skillIcon.NotAttacking();
+                skillIcon = null;
+            }
+        }
         allPossibleActions = action;
+    }
+
+    public bool IsIdle() {
+        return allPossibleActions == Actions.IDLE;
     }
 
     public virtual void GetDamaged(int damage){
@@ -63,9 +77,17 @@ public abstract class Player: MonoBehaviour
         TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(this);
     } 
 
-    public virtual void SetSkillsToUse(SkillsSO skillsSO, Enemy enemy){
+    public virtual void SetSkillsToUse(SkillsSO skillsSO, Enemy enemy, SkillIcon newSkillIcon){
         this.skillsToUse = skillsSO;
         this.targetEnemy = enemy;
+        if (skillIcon != null) {
+            skillIcon.Switch();
+            skillIcon = newSkillIcon;
+            skillIcon.Switch();
+        } else {
+            skillIcon = newSkillIcon;
+            skillIcon.Switch();
+        }
     }
 
     public virtual void Act(){
@@ -77,6 +99,14 @@ public abstract class Player: MonoBehaviour
             case (Actions.GUARD):
                 Guard();
                 break;
+        }
+        allPossibleActions = Actions.IDLE;
+    }
+
+    public void CheckIfThisSkillIsUsed(SkillsSO skillSO, SkillIcon skillIcon) {
+        if (skillsToUse == skillSO) {
+            skillIcon.Switch();
+            this.skillIcon = skillIcon;
         }
     }
 

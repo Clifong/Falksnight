@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour, IInteractable
+public abstract class NPC : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private GameObject interactCanvas;
@@ -11,15 +11,17 @@ public class NPC : MonoBehaviour, IInteractable
     [SerializeField]
     private string name;
 
-    public void Interact() {
-        DialogueManager.dialogueManager.StartDialogue(dialogueText, name);
+    public virtual void Interact() {
+        DialogueManager.dialogueManager.StartDialogue(this, dialogueText, name);
     }
 
-    public void ShowInteractCanvas() {
+    public abstract void EndDialogueEvent();
+
+    public virtual void ShowInteractCanvas() {
         interactCanvas.SetActive(true);
     }
 
-    public void HideInteractCanvas() {
+    public virtual void HideInteractCanvas() {
         interactCanvas.SetActive(false);
     }
 }

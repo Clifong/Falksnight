@@ -5,6 +5,6 @@ using UnityEngine;
 public class GuardButton : MonoBehaviour
 {
     public void TellCharacterToAttackEnemy(){
-        CharacterManager.characterManager.IncrementAction();
+        CharacterManager.characterManager.Guard();
     }
 }

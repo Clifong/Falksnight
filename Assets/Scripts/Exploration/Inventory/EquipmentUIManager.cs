@@ -35,6 +35,7 @@ public class EquipmentUIManager : MonoBehaviour
             GameObject instantiatedGrid = Instantiate(equipment.equipmentInSphereGrid, panel);
             instantiatedGrid.GetComponent<WeaponIcon>().SetReference(instantiatedGrid);
             currentlyInstantiatedImages.Add(instantiatedGrid);
+            SetData(equipments[0]);
         }
     }
 

@@ -7,8 +7,6 @@ public class CharacterManager : MonoBehaviour{
     [SerializeField]
     private Player currentPlayerSelected;
     [SerializeField]
-    private Player previousPlayerSelected;
-    [SerializeField]
     private int selectedAction = 0;
     [SerializeField]
     private int totalNumberOfPartyMembers;
@@ -48,36 +46,29 @@ public class CharacterManager : MonoBehaviour{
     }
 
     public void SetSelectedPlayer(Player player){
-        previousPlayerSelected = currentPlayerSelected;
         currentPlayerSelected = player;
     }
 
-    public void IncrementAction(SkillsSO skillSO){
+    public void Attack(SkillsSO skillSO, SkillIcon skillIcon){
+        this.currentPlayerSelected.SetSkillsToUse(skillSO, EnemyManager.enemyManager.GetSelectedEnemy(), skillIcon);
         this.currentPlayerSelected.SetAction(Actions.ATTACK);
-        if (currentPlayerSelected != previousPlayerSelected){
-            selectedAction += 1;
-            selectedAction = Mathf.Min(selectedAction, totalNumberOfPartyMembers);
-            previousPlayerSelected = currentPlayerSelected;
-            this.currentPlayerSelected.SetSkillsToUse(skillSO, EnemyManager.enemyManager.GetSelectedEnemy());
-            EnableAllPartyMembersToAct();
-        }
-        else{
-            this.currentPlayerSelected.SetSkillsToUse(skillSO, EnemyManager.enemyManager.GetSelectedEnemy());
-        }
+        EnableAllPartyMembersToAct();
     }
 
-    public void IncrementAction(){
+    public void Guard(){
         this.currentPlayerSelected.SetAction(Actions.GUARD);
-        if (currentPlayerSelected != previousPlayerSelected){
-            selectedAction += 1;
-            selectedAction = Mathf.Min(selectedAction, totalNumberOfPartyMembers);
-            previousPlayerSelected = currentPlayerSelected;
-            EnableAllPartyMembersToAct();
-        }
+        EnableAllPartyMembersToAct();
     }
 
     public void EnableAllPartyMembersToAct(){
-        if (selectedAction == totalNumberOfPartyMembers){
+        bool isReady = true;
+        foreach (Player player in allPartyMembers)
+        {
+            if (player.IsIdle()) {
+                isReady = false;
+            } 
+        }
+        if (isReady) {
             AttackUIManager.attackUIManager.AllPartyMembersActionsSelected();
         }
     }
@@ -89,7 +80,6 @@ public class CharacterManager : MonoBehaviour{
     public void AllPartyMembersAct(){
         AttackUIManager.attackUIManager.HidePlayerUIElements();
         selectedAction = 0;
-        previousPlayerSelected = null;
         StartCoroutine(WaitForAMoment());
     }
 
@@ -114,7 +104,6 @@ public class CharacterManager : MonoBehaviour{
         }
         else{
             TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(allPartyMembers[0]);
-            previousPlayerSelected = null;
         }
     }
 

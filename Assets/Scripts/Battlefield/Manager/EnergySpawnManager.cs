@@ -34,7 +34,8 @@ public class EnergySpawnManager : MonoBehaviour
         int numberOfEnergyToSpawn = Random.Range(minNumberOfEnergyToSpawn, maxNumberOfEnergyToSpawn);
         for (int i = 0; i < numberOfEnergyToSpawn; i++){
             int index = Random.Range(0, attackGrid.Count - 1);
-            GameObject spawnedEnergyBall = Instantiate(energyBall, attackGrid[i].position, Quaternion.identity);
+            GameObject spawnedEnergyBall = Instantiate(energyBall, attackGrid[i].transform);
+            spawnedEnergyBall.transform.localPosition = Vector3.zero;
         }   
     }
 }

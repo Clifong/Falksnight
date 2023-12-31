@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyHolder : Boss
+public class KeyHolder : Enemy
 {
     void Start()
     {

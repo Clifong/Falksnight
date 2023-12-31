@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Buried in frost
   m_EditorClassIdentifier: 
   name: Buried in frost
-  description: 
+  description: Inflict ice damage to all enemies
   attack: 1
   allEnemy: 1

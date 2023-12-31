@@ -19,7 +19,9 @@ public class Destructible : MonoBehaviour
     }
 
     public void DestroyObject(){
-        InventoryManager.inventoryManager.AddNewItems(allItems);
+        if (allItems != null && allItems.Count != 0) {
+            InventoryManager.inventoryManager.AddNewItems(allItems);
+        }
         Destroy(gameObject);
     }
 }

@@ -46,7 +46,9 @@ public class AttackUIManager : MonoBehaviour
         foreach (SkillsSO skillSO in playerSO.skillSet)
         {
             GameObject spawnedSkillicon = Instantiate(skillIcon, contentTransform);
-            spawnedSkillicon.GetComponent<SkillIcon>().SetSkillSO(skillSO);
+            SkillIcon skillIconScript = spawnedSkillicon.GetComponent<SkillIcon>();
+            skillIconScript.SetSkillSO(skillSO);
+            player.CheckIfThisSkillIsUsed(skillSO, skillIconScript);
             spawnedSkillIcons.Add(spawnedSkillicon);
         }
     }

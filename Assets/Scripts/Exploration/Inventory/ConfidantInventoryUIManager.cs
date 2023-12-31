@@ -30,6 +30,7 @@ public class ConfidantInventoryUIManager : MonoBehaviour
         {
             GameObject instantiatedGrid = Instantiate(confidantItemSO.confidantItemWithGrid, panel);
             currentlyInstantiatedIcons.Add(instantiatedGrid);
+            SetData(confidantItems[0]);
         }
     }
 
