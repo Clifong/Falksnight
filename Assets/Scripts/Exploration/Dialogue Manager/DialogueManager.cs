@@ -23,13 +23,15 @@ public class DialogueManager : MonoBehaviour
     private PlayerAttack playerAttackScript;
     private Canvas playerCanvas;
     private bool choiceMaking;
-    private NPC currentNPC;
+    public CrossObjectEvent crossEvent;
 
     private void Awake() {
         if (dialogueManager != null) {
             Destroy(dialogueManager);
         }
-        dialogueManager = this;
+        else {
+            dialogueManager = this;
+        }
     }
 
     private void Start() {
@@ -57,8 +59,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(NPC npc, TextAsset inkJson, string name) {
-        currentNPC = npc;
+    public void StartDialogue(TextAsset inkJson, string name) {
         playerMovementScript.enabled = false;
         playerCanvas.enabled = false;
         playerAttackScript.enabled = false;
@@ -77,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         playerCanvas.enabled = true;
         dialogueCanvas.enabled = false;
         dialogueIsPlaying = false;
-        currentNPC.EndDialogueEvent();
+        crossEvent.TriggerEvent();
     }
 
     private void ContinueStory() {

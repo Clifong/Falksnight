@@ -2,26 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NPC : MonoBehaviour, IInteractable
+public abstract class NPC : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject interactCanvas;
-    [SerializeField]
-    private TextAsset dialogueText;
-    [SerializeField]
-    private string name;
+    private DialogueNPC dialogueNPC;
+    // public List<Conditions> conditions;
+    public int index = 0;
+
+    void Start() {
+        dialogueNPC = GetComponent<DialogueNPC>();
+    }   
 
     public virtual void Interact() {
-        DialogueManager.dialogueManager.StartDialogue(this, dialogueText, name);
-    }
+        // if (conditions[index].isTrue());
+        //     dialogueNPC.PlayDialogue();
+        //     index += 1;
+        // else {
 
-    public abstract void EndDialogueEvent();
-
-    public virtual void ShowInteractCanvas() {
-        interactCanvas.SetActive(true);
-    }
-
-    public virtual void HideInteractCanvas() {
-        interactCanvas.SetActive(false);
+        // }
     }
 }
+    

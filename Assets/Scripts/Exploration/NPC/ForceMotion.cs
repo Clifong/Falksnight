@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ForceMotion : MonoBehaviour
 {
     public List<Transform> positionsForceToGoTo;
+    public List<UnityEvent> onReachDestination;
     public float speed;
     private int index = 0;
     private Rigidbody2D rb;
@@ -22,6 +24,9 @@ public class ForceMotion : MonoBehaviour
             if (rb.position.Equals(positionsForceToGoTo[index].position)) {
                 canMove = false;
                 anime.SetBool("move", false);
+                if (onReachDestination[index] != null) {
+                    onReachDestination[index]?.Invoke();
+                }
                 index += 1;
             }        
         }

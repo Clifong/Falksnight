@@ -10447,8 +10447,109 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf spirit
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2178318437770323832, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+      propertyPath: InteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1535841287741140031}
+    - target: {fileID: 2178318437770323832, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+      propertyPath: InteractEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011657694518538298, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+      propertyPath: dialogueTextList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1535841288768319410, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+--- !u!1 &1535841287741140029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535841288768319419, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+  m_PrefabInstance: {fileID: 1535841287741140028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535841287741140030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535841287741140029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c701afe2aef9869419396ec6f5d04280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 47e2ccb9bd3f25f468fc8f7ccf0360ae, type: 2}
+  responseOnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1535841287741140032}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: morph
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1535841287741140031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7011657694518538298, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+  m_PrefabInstance: {fileID: 1535841287741140028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535841287741140029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34b26b2a2541ee4d8ad6bd362430aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &1535841287741140032 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1535841288768319413, guid: 0ffd321c6f1bc8543994b8695e1b7c24, type: 3}
+  m_PrefabInstance: {fileID: 1535841287741140028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1535841287741140033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535841287741140029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8199823a0b6f6df4eaeea4a47ac31a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allSpecialEvent:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1535841287741140029}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 356829827}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1001 &2243045108075673532
 PrefabInstance:
   m_ObjectHideFlags: 0

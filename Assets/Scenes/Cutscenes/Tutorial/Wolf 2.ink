@@ -1,0 +1,1 @@
+Please destroy the rocks for me to proceed.

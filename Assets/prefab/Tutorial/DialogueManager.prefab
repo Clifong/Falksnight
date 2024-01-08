@@ -963,6 +963,7 @@ MonoBehaviour:
   - {fileID: 4168258414914978136}
   - {fileID: 4168258414331106425}
   playerMovementScript: {fileID: 0}
+  crossEvent: {fileID: 11400000, guid: 47e2ccb9bd3f25f468fc8f7ccf0360ae, type: 2}
 --- !u!1 &4168258414868675019
 GameObject:
   m_ObjectHideFlags: 0
