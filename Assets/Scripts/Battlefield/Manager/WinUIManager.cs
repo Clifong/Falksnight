@@ -6,13 +6,12 @@ using TMPro;
 public class WinUIManager : MonoBehaviour
 {
     public static WinUIManager winUIManager;
-    public Canvas winUICanvas;
+    public RewardsStateSO rewardsStateSO;
     public TextMeshProUGUI moneyEarnedText;
     public Transform content;
 
     void Awake()
     {
-        winUICanvas.enabled = false;
         if (winUIManager != null){
             Destroy(winUIManager);
         }
@@ -20,23 +19,10 @@ public class WinUIManager : MonoBehaviour
     }
 
     public void ShowWinPanel() {
-        ItemAndEquipmentGainTempManager.itemAndEquipmentGainTempManager.DisplayAllTempItem();
-        MoneyAndExpManager.moneyAndExpManager.FinallyDisplayMoney();
-        winUICanvas.enabled = true;
-    }
-    
-    public void ExitBattle() {
-        LevelManager.WinBattle(this);
-    }
-
-    public void DisplayAllItemAndEquipmentGained(List<Item> allItem) {
-        foreach (Item item in allItem)
+        moneyEarnedText.text = rewardsStateSO.moneyEarned.ToString();
+        foreach (Item item in rewardsStateSO.itemRewards)
         {
             Instantiate(item.itemWithGridImageAndName, content);
         }
-    }
-
-    public void DisplayMoneyEarned(int money) {
-        moneyEarnedText.text = money.ToString();
     }
 }

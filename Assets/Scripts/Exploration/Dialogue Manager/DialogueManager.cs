@@ -19,10 +19,8 @@ public class DialogueManager : MonoBehaviour
     private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
     [SerializeField]
-    private PlayerMovement playerMovementScript;
-    private PlayerAttack playerAttackScript;
-    private Canvas playerCanvas;
     private bool choiceMaking;
+    public CrossObjectEvent dialogueStart;
     public CrossObjectEvent crossEvent;
 
     private void Awake() {
@@ -35,10 +33,6 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Start() {
-        playerCanvas = GameObject.FindWithTag("PlayerCanvas").GetComponent<Canvas>();
-        GameObject player = GameObject.FindWithTag("MC");
-        playerMovementScript = player.GetComponent<PlayerMovement>();
-        playerAttackScript = player.GetComponent<PlayerAttack>();
         dialogueIsPlaying = false;
         choiceMaking = false;
         choicesText = new TextMeshProUGUI[choices.Length];
@@ -60,10 +54,8 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void StartDialogue(TextAsset inkJson, string name) {
-        playerMovementScript.enabled = false;
-        playerCanvas.enabled = false;
-        playerAttackScript.enabled = false;
         this.name.text = name;
+        dialogueStart.TriggerEvent();
         currentStory = new Story(inkJson.text);
         dialogueIsPlaying = true;
         dialogueCanvas.enabled = true;
@@ -72,17 +64,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void ExitDialogue() {
-        playerAttackScript.enabled = true;
         HideChoices();
-        playerMovementScript.enabled = true;
-        playerCanvas.enabled = true;
         dialogueCanvas.enabled = false;
         dialogueIsPlaying = false;
         crossEvent.TriggerEvent();
     }
 
     private void ContinueStory() {
-        Debug.Log(choiceMaking);
         if (currentStory.canContinue) {
             dialogueText.text = currentStory.Continue();
             if (currentStory.currentChoices.Count != 0) {

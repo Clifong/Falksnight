@@ -14,10 +14,15 @@ public class InteractableObjects : MonoBehaviour, IInteractable
     }
 
     public void ShowInteractCanvas() {
-        interactCanvas.SetActive(true);
+        if (interactCanvas != null) {
+            interactCanvas.SetActive(true);
+        }
+        
     }
 
     public void HideInteractCanvas() {
-        interactCanvas.SetActive(false);
+        if (interactCanvas != null) {
+            interactCanvas.SetActive(false);
+        }
     }
 }

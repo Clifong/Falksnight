@@ -72,9 +72,9 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Die(PlayerSO playerSO){
         EnemyManager.enemyManager.UpdateList(this);
-        ItemAndEquipmentGainTempManager.itemAndEquipmentGainTempManager.AddTempItem(enemySO.itemDrop);
-        MoneyAndExpManager.moneyAndExpManager.AddMoney(enemySO.returnRandomMoney());
-         MoneyAndExpManager.moneyAndExpManager.AddExp(playerSO, enemyExp);
+        RewardsManager.rewardsManager.AddTempItem(enemySO.itemDrop);
+        RewardsManager.rewardsManager.AddMoney(enemySO.returnRandomMoney());
+        RewardsManager.rewardsManager.AddExp(playerSO, enemyExp);
         // anime.SetBool("die", true);
         Destroy(gameObject);
     }

@@ -78,7 +78,6 @@ public class CharacterManager : MonoBehaviour{
     }
 
     public void AllPartyMembersAct(){
-        AttackUIManager.attackUIManager.HidePlayerUIElements();
         selectedAction = 0;
         StartCoroutine(WaitForAMoment());
     }

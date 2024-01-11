@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public CrossObjectEvent winBattle;
     public static EnemyManager enemyManager;
     private Enemy enemy;
     private bool allDead;
@@ -55,8 +56,7 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator WaitForAMomentWin(){
         yield return new WaitForSeconds(1);
-        MoneyAndExpManager.moneyAndExpManager.FinallyAddExp();
-        WinUIManager.winUIManager.ShowWinPanel();
+        winBattle.TriggerEvent();
     }
 
     private IEnumerator WaitForAMoment(){
@@ -68,7 +68,6 @@ public class EnemyManager : MonoBehaviour
         if (!CharacterManager.characterManager.EveryoneDead()){
             SkillTextboxManager.skillTextboxManager.HideText();
             TurnManager.turnManager.ChangeTurn();
-            AttackUIManager.attackUIManager.ShowPlayerUIElements();
             StopAllCoroutines();
         }
     }

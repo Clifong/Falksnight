@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagerHelper : MonoBehaviour
 {
-    public Scene scene;
+    public string sceneName;
     public void ChangeLevel() {
-        LevelManager.LoadLevel(this, scene.name);
+        LevelManager.LoadLevel(this, sceneName);
     }
 }

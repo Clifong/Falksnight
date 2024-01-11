@@ -57,15 +57,6 @@ public class AttackUIManager : MonoBehaviour
         attackButton.SetActive(true);
     }
 
-    public void HidePlayerUIElements(){
-        attackButton.SetActive(false);
-        attackUICanvas.enabled = false;
-    }
-
-    public void ShowPlayerUIElements(){
-        attackUICanvas.enabled = true;
-    }
-
     public void InstantiateDamageText(Vector2 pos, int damage, bool critOrNot){
         if (critOrNot) {
             damageText.color = new Color(1,0,0,1);

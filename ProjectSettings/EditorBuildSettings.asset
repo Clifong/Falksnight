@@ -12,34 +12,34 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutscenes/Tutorial/Tutorial cutscene.unity
     guid: 060434eb79e73094cb759f72f9473778
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
+    path: Assets/Scenes/World 1/Stage1.unity
     guid: ae724cc161fc5894a889ee539f5500ef
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial.unity
     guid: efe641a674251014192254b92984ef4b
   - enabled: 1
-    path: Assets/Scenes/Stage2.unity
+    path: Assets/Scenes/World 1/Stage2.unity
     guid: 9232666050654784b80a8c7603964351
   - enabled: 1
     path: Assets/Scenes/Lose.unity
     guid: 9968a673465792d4ebd65ead720abe08
   - enabled: 1
-    path: Assets/Scenes/Stage3.unity
+    path: Assets/Scenes/World 1/Stage3.unity
     guid: 15cb56bfa2a467542a88f484bf8aa1ae
   - enabled: 1
-    path: Assets/Scenes/Stage4.unity
+    path: Assets/Scenes/World 1/Stage4.unity
     guid: 64abbe74b239ce74eba7375226307b20
   - enabled: 1
     path: Assets/Scenes/BossBattlefield.unity
     guid: 0a7d126a6cd07b94b8f8d6ddc5ce9549
   - enabled: 1
-    path: Assets/Scenes/Stage5.unity
+    path: Assets/Scenes/World 1/Stage5.unity
     guid: 5200a55527adff546b7312d464decd3f
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial2.unity
     guid: 5a582b657dfc9fb4a958b4275611b885
   - enabled: 1
-    path: Assets/Scenes/MainWorld.unity
+    path: Assets/Scenes/Main world/MainWorldSchool.unity
     guid: 44049ba428d1dce4a9f1128bec0b5151
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial3.unity
