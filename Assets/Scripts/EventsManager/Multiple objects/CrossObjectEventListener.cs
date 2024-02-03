@@ -16,7 +16,7 @@ public class CrossObjectEventListener : MonoBehaviour
         gameEvent.RemoveListener(this);
     }
 
-    public void TriggerEvent() {
+    public virtual void TriggerEvent() {
         responseOnTrigger?.Invoke();
     }
 }

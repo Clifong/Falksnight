@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private bool choiceMaking;
     public CrossObjectEvent dialogueStart;
-    public CrossObjectEvent crossEvent;
+    public CrossObjectEvent dialogueEnd;
 
     private void Awake() {
         if (dialogueManager != null) {
@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
         HideChoices();
         dialogueCanvas.enabled = false;
         dialogueIsPlaying = false;
-        crossEvent.TriggerEvent();
+        dialogueEnd.TriggerEvent();
     }
 
     private void ContinueStory() {

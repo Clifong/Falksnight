@@ -7,6 +7,7 @@ public class Destructible : MonoBehaviour
     private Animator anime;
     [SerializeField]
     private List<Item> allItems;
+    public CrossObjectEventWithData destroyObjectEvent;
   
     private void Start(){
         anime = GetComponent<Animator>();
@@ -19,6 +20,7 @@ public class Destructible : MonoBehaviour
     }
 
     public void DestroyObject(){
+        destroyObjectEvent.TriggerEvent(this, allItems);
         if (allItems != null && allItems.Count != 0) {
             InventoryManager.inventoryManager.AddNewItems(allItems);
         }

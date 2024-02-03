@@ -7,7 +7,6 @@ public class Ebonstatue : MonoBehaviour, IInteractable, IDataPersistence
 {
     [SerializeField]
     private string id;
-    private static int counter = 0;
     private int totalStatue;
     [SerializeField]
     private GameObject interactCanvas;
@@ -21,7 +20,6 @@ public class Ebonstatue : MonoBehaviour, IInteractable, IDataPersistence
     }
 
     private void Start() {
-        Ebonstatue.counter = 0;
         totalStatue = GameObject.FindGameObjectsWithTag("Ebonstatue").Length;
     }
 
@@ -29,7 +27,7 @@ public class Ebonstatue : MonoBehaviour, IInteractable, IDataPersistence
         if (!activated) {
             anime.SetBool("Purify", true);
             activated = true;
-            IncrementCounter();
+            ActivateStatueEffect?.Invoke();
         }
     }
 
@@ -47,18 +45,11 @@ public class Ebonstatue : MonoBehaviour, IInteractable, IDataPersistence
         interactCanvas.SetActive(false);
     }
 
-    public void IncrementCounter() {
-        Ebonstatue.counter++;
-        if (counter == totalStatue) {
-            ActivateStatueEffect?.Invoke();
-        }
-    }
-
     public void LoadData(GameData gameData){
         gameData.ebonActivatedDict.TryGetValue(id, out activated);
         anime = GetComponent<Animator>();
         if (this.activated) {
-            Ebonstatue.counter++;
+            ActivateStatueEffect?.Invoke();
             anime.SetBool("Purified", true);
         }
     }

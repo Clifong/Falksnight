@@ -34,4 +34,8 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
             gameData.playerPosition = rb.position;
         }
     }
+
+    public void ChangeEnable() {
+        this.enabled = !this.enabled;
+    }
 }

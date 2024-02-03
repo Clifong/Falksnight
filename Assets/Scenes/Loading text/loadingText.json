@@ -1,0 +1,33 @@
+{
+    "loadingDataArray": [
+        {
+        "title": "The past and destiny",
+        "text": "You can never move forward if you don't move on."
+        },
+
+        {
+        "title": "Falsknight",
+        "text": "A domain of endless night."
+        },
+
+        {
+        "title": "You",
+        "text": "You are...?"
+        },
+
+        {
+        "title": "The world",
+        "text": "In this world, you will meet allies who will fight by your side."
+        },
+
+        {
+        "title": "Patients",
+        "text": "The ill have not yet awakened to who they are."
+        },
+
+        {
+        "title": "Red threads",
+        "text": "The red threads bind our future, present and past."
+        }
+    ]
+}

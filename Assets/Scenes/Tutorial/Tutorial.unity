@@ -10670,7 +10670,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tutorial player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2861373304632490781, guid: 2ac7d56d7b03e20409b6b78420ffef35, type: 3}
+    - {fileID: 2861373304632490783, guid: 2ac7d56d7b03e20409b6b78420ffef35, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2ac7d56d7b03e20409b6b78420ffef35, type: 3}
 --- !u!1001 &3262999352045197668
 PrefabInstance:

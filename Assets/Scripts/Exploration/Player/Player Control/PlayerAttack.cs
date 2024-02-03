@@ -17,4 +17,8 @@ public class PlayerAttack : MonoBehaviour
     void Update(){
         mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
     }
+
+    public void ChangeEnable() {
+        this.enabled = !this.enabled;
+    }
 }

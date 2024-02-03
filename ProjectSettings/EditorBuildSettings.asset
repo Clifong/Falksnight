@@ -47,4 +47,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cutscenes/Tutorial/Tutorial cutscene 2.unity
     guid: 21f1b89b787a429428829d53190198c6
+  - enabled: 1
+    path: Assets/Scenes/Main world/MainWorldMyRoom.unity
+    guid: 2ea1b01c5c73bac45b30df651a0ad29a
+  - enabled: 1
+    path: Assets/Scenes/Title screen/Title screen.unity
+    guid: 11352e45a07847548b6e2980e4a1b9ce
+  - enabled: 1
+    path: Assets/Scenes/World 1/Restarea.unity
+    guid: 3bd91c76ebb85ce48979dce335120646
   m_configObjects: {}
