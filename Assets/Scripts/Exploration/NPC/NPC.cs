@@ -11,14 +11,5 @@ public abstract class NPC : MonoBehaviour
     void Start() {
         dialogueNPC = GetComponent<DialogueNPC>();
     }   
-
-    public virtual void Interact() {
-        // if (conditions[index].isTrue());
-        //     dialogueNPC.PlayDialogue();
-        //     index += 1;
-        // else {
-
-        // }
-    }
 }
     

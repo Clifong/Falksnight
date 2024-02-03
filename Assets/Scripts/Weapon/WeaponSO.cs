@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponSO : ScriptableObject
 {
     public GameObject equipmentInSphereGrid;
+    public GameObject equipmentInSphereGridForShop;
     public GameObject equipmentInSphereAndName;
     public Sprite equipmentImage;
     public string name;

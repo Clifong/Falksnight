@@ -30,7 +30,7 @@ public class RewardsManager : MonoBehaviour
         rewardsStateSO.AddExp(allPlayerDict, playerSO, exp);
     }
 
-    public void AddTempItem(List<Item> item) {
+    public void AddTempItem(List<ItemSO> item) {
         rewardsStateSO.AddTempItem(item);
     }
 }

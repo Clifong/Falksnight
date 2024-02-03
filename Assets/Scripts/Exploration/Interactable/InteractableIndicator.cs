@@ -9,7 +9,7 @@ public class InteractableIndicator : MonoBehaviour, IInteractable, IDataPersiste
     [SerializeField]
     private GameObject interactCanvas;
     [SerializeField]
-    private List<Item> itemList;
+    private List<ItemSO> itemList;
     private bool collected = false;
 
     [ContextMenu("Generate GUID for chest")]

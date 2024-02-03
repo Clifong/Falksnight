@@ -8,7 +8,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager inventoryManager;
     private static int counter = 0;
     [SerializeField]
-    private List<Item> allItems;
+    private List<ItemSO> allItems;
     [SerializeField]
     private List<WeaponSO> allEquipment;
     [SerializeField]
@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
         allConfidantItems = playerData.confidantItems;
     }
 
-    public void RemoveItem(Item item) {
+    public void RemoveItem(ItemSO item) {
         allItems.Remove(item);
         playerData.inventoryItems = allItems;
     }
@@ -42,8 +42,8 @@ public class InventoryManager : MonoBehaviour
         playerData.confidantItems = allConfidantItems;
     }
 
-    public void AddNewItems(List<Item> newItems){
-        foreach (Item item in newItems)
+    public void AddNewItems(List<ItemSO> newItems){
+        foreach (ItemSO item in newItems)
         {
             allItems.Add(item);
         }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Centipede
   m_EditorClassIdentifier: 
   equipmentInSphereGrid: {fileID: 139935078419346814, guid: 403138e602e1c084bade90f352f18d19, type: 3}
-  equipmentInSphereAndName: {fileID: 0}
+  equipmentInSphereGridForShop: {fileID: 139935078419346814, guid: af93a77515a4ddd4fb20e58a1ccc5b13, type: 3}
+  equipmentInSphereAndName: {fileID: 139935078419346814, guid: f3b1e4324474e9848b8f3dfe3cb06a38, type: 3}
   equipmentImage: {fileID: 21300000, guid: 53095b232f67ae8468502623c2907d6c, type: 3}
   name: Centipede
-  description: Centipede
+  description: Nasty centipede are evil
   healthBoost: 2
   attackBoost: 2
   defenceBoost: 1

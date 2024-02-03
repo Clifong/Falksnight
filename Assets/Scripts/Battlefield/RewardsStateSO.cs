@@ -8,7 +8,7 @@ public class RewardsStateSO : ScriptableObject
     public int moneyEarned;
     public int expEarned;
     public List<WeaponSO> weaponRewards;
-    public List<Item> itemRewards;
+    public List<ItemSO> itemRewards;
     public List<ConfidantItemSO> confidantRewards;
 
     void Start()
@@ -16,7 +16,7 @@ public class RewardsStateSO : ScriptableObject
         moneyEarned = 0;
         expEarned = 0;
         weaponRewards = new List<WeaponSO>();
-        itemRewards = new List<Item>();
+        itemRewards = new List<ItemSO>();
         confidantRewards = new List<ConfidantItemSO>();
     }
 
@@ -28,14 +28,14 @@ public class RewardsStateSO : ScriptableObject
         moneyEarned -= money;
     }
 
-    public void AddTempItem(List<Item> itemsGained) {
-        foreach (Item item in itemsGained)
+    public void AddTempItem(List<ItemSO> itemsGained) {
+        foreach (ItemSO item in itemsGained)
         {
             itemRewards.Add(item);
         }
     }
 
-    public void RemoveTempItem(Item item) {
+    public void RemoveTempItem(ItemSO item) {
         itemRewards.Remove(item);
     }
 

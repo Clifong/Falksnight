@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Snake In Sphere
   m_EditorClassIdentifier: 
   equipmentInSphereGrid: {fileID: 139935078419346814, guid: 0512d5ed2c5774647be4439efbfded99, type: 3}
+  equipmentInSphereGridForShop: {fileID: 139935078419346814, guid: fb40b4d96e0cbc5458b18c64c92a3b9d, type: 3}
   equipmentInSphereAndName: {fileID: 0}
   equipmentImage: {fileID: 21300000, guid: e8c877ee54a57d747bf28557b145be41, type: 3}
   name: 'Snake '

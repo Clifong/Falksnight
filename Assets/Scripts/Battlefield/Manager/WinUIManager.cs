@@ -20,7 +20,7 @@ public class WinUIManager : MonoBehaviour
 
     public void ShowWinPanel() {
         moneyEarnedText.text = rewardsStateSO.moneyEarned.ToString();
-        foreach (Item item in rewardsStateSO.itemRewards)
+        foreach (ItemSO item in rewardsStateSO.itemRewards)
         {
             Instantiate(item.itemWithGridImageAndName, content);
         }

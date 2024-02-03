@@ -13,7 +13,7 @@ public class EnemySO : ScriptableObject
     public int baseCritRate;
     public int baseCritDamage;
     public List<SkillsSO> skillSet;
-    public List<Item> itemDrop;
+    public List<ItemSO> itemDrop;
     public int minMoneyEarned;
     public int maxMoneyEarned;
     public int level;

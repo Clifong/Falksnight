@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealingTube
   m_EditorClassIdentifier: 
   itemWithGridImage: {fileID: 139935078419346814, guid: a7e866dc2ee67754992e95ef779819d9, type: 3}
+  itemWithGridImageForShop: {fileID: 139935078419346814, guid: dad3162d813083740950bee21bddc7b0, type: 3}
   itemWithGridImageAndName: {fileID: 139935078419346814, guid: 256f23e16d977b548bfcc6ecc7200a52, type: 3}
   itemImage: {fileID: 21300000, guid: cdad57bb677a0e64ab9a21192054c2e8, type: 3}
   name: Healing tube

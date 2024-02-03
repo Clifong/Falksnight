@@ -6,7 +6,7 @@ public class Destructible : MonoBehaviour
 {
     private Animator anime;
     [SerializeField]
-    private List<Item> allItems;
+    private List<ItemSO> allItems;
     public CrossObjectEventWithData destroyObjectEvent;
   
     private void Start(){

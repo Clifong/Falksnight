@@ -15,7 +15,7 @@ public class ItemUIManager : MonoBehaviour
     public TextMeshProUGUI description;
     public Button useButton;
     private GameObject referencedItem;
-    private Item selectedItem;
+    private ItemSO selectedItem;
     private PlayerSO selectedPlayer;
     private List<GameObject> currentlyInstantiatedImages = new List<GameObject>();
     void Start()
@@ -26,14 +26,14 @@ public class ItemUIManager : MonoBehaviour
         itemUIManager = this;
     }
 
-    public void InstantiateImage(List<Item> items){
+    public void InstantiateImage(List<ItemSO> items){
         playerUICanvas.enabled = !playerUICanvas.enabled;
         useButton.gameObject.SetActive(false);
         foreach (GameObject item in currentlyInstantiatedImages)
         {
             Destroy(item);
         }
-        foreach (Item item in items)
+        foreach (ItemSO item in items)
         {
             GameObject instantiatedGrid = Instantiate(item.itemWithGridImage, panel);
             instantiatedGrid.GetComponent<ItemIcon>().SetReference(instantiatedGrid);
@@ -42,14 +42,14 @@ public class ItemUIManager : MonoBehaviour
         }
     }
 
-    public void SetData(Item itemData){
+    public void SetData(ItemSO itemData){
         itemImage.sprite = itemData.itemImage;
         name.text = itemData.name;
         description.text = itemData.description;
         useButton.gameObject.SetActive(true);
     }
 
-    public void SetItemReference(Item itemData, GameObject instantiatedGrid) {
+    public void SetItemReference(ItemSO itemData, GameObject instantiatedGrid) {
         referencedItem = instantiatedGrid;
         selectedItem = itemData;
     }

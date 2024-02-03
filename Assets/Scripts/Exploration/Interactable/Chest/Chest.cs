@@ -10,7 +10,7 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
     private GameObject interactCanvas;
     private bool opened = false;
     private Animator anime;
-    public List<Item> chestItems;
+    public List<ItemSO> chestItems;
 
     [ContextMenu("Generate GUID for chest")]
     public void GenerateGuid() {
