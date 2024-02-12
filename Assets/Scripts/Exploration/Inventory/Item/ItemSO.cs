@@ -10,6 +10,7 @@ public class ItemSO : ScriptableObject
     public GameObject itemWithGridImageAndName;
     public Sprite itemImage;
     public string name;
+    public int cost;
     [TextAreaAttribute]
     public string description;
     public int recoverEnergy;

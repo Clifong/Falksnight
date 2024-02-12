@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b4ba598f95f51458eee598d0005d88, type: 3}
   m_Name: Snake In Sphere
   m_EditorClassIdentifier: 
-  equipmentInSphereGrid: {fileID: 139935078419346814, guid: 0512d5ed2c5774647be4439efbfded99, type: 3}
-  equipmentInSphereGridForShop: {fileID: 139935078419346814, guid: fb40b4d96e0cbc5458b18c64c92a3b9d, type: 3}
-  equipmentInSphereAndName: {fileID: 0}
-  equipmentImage: {fileID: 21300000, guid: e8c877ee54a57d747bf28557b145be41, type: 3}
+  weaponInSphereGrid: {fileID: 139935078419346814, guid: 0512d5ed2c5774647be4439efbfded99, type: 3}
+  weaponInSphereGridForShop: {fileID: 139935078419346814, guid: fb40b4d96e0cbc5458b18c64c92a3b9d, type: 3}
+  weaponInSphereAndName: {fileID: 139935078419346814, guid: 89ae1120b4b88994cbd19937ab221442, type: 3}
+  weaponImage: {fileID: 21300000, guid: e8c877ee54a57d747bf28557b145be41, type: 3}
   name: 'Snake '
+  cost: 0
   description: Snake
   healthBoost: 0
   attackBoost: 5

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b4ba598f95f51458eee598d0005d88, type: 3}
   m_Name: Centipede
   m_EditorClassIdentifier: 
-  equipmentInSphereGrid: {fileID: 139935078419346814, guid: 403138e602e1c084bade90f352f18d19, type: 3}
-  equipmentInSphereGridForShop: {fileID: 139935078419346814, guid: af93a77515a4ddd4fb20e58a1ccc5b13, type: 3}
-  equipmentInSphereAndName: {fileID: 139935078419346814, guid: f3b1e4324474e9848b8f3dfe3cb06a38, type: 3}
-  equipmentImage: {fileID: 21300000, guid: 53095b232f67ae8468502623c2907d6c, type: 3}
+  weaponInSphereGrid: {fileID: 139935078419346814, guid: 403138e602e1c084bade90f352f18d19, type: 3}
+  weaponInSphereGridForShop: {fileID: 139935078419346814, guid: af93a77515a4ddd4fb20e58a1ccc5b13, type: 3}
+  weaponInSphereAndName: {fileID: 139935078419346814, guid: f3b1e4324474e9848b8f3dfe3cb06a38, type: 3}
+  weaponImage: {fileID: 21300000, guid: 53095b232f67ae8468502623c2907d6c, type: 3}
   name: Centipede
+  cost: 50
   description: Nasty centipede are evil
   healthBoost: 2
   attackBoost: 2

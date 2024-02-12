@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentData: {fileID: 11400000, guid: 64922c7edc00141418f4de2e8bda418f, type: 2}
   crossObjectEventWithData: {fileID: 11400000, guid: 53c98100dfceb23408e84fc089c43cb7, type: 2}
+  image: {fileID: 3940378079171114337}
 --- !u!114 &354182273822355494
 MonoBehaviour:
   m_ObjectHideFlags: 0

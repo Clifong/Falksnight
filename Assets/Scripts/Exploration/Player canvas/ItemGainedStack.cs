@@ -9,9 +9,14 @@ public class ItemGainedStack : CrossObjecEventListenerWithData
     private List<GameObject> spawnedObjects = new List<GameObject>();
     public GameObject itemStack;
 
-    public override void TriggerEvent(Component sender, object data) {
+    public override void TriggerEvent(Component sender, params object[] data) {
         itemStack.SetActive(true);
-        foreach (ItemSO item in (List<ItemSO>)data)
+        List<ItemSO> temp = new List<ItemSO>();
+        foreach (object obj in data)
+        {
+            temp.Add((ItemSO) obj);
+        }
+        foreach (ItemSO item in temp)
         {
             thingsToAppear.Add(item);
         }

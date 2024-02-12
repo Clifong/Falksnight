@@ -18,7 +18,7 @@ public class CrossObjecEventListenerWithData : MonoBehaviour
         gameEvent.RemoveListener(this);
     }
 
-    public virtual void TriggerEvent(Component sender, object data) {
+    public virtual void TriggerEvent(Component sender, params object[] data) {
 
         responseOnTrigger?.Invoke(sender, data);
     }

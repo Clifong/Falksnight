@@ -92,6 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 0fe64ac7c7919a546aa553900da46bd8, type: 2}
   crossObjectEventWithData: {fileID: 11400000, guid: 40b2920e235046c4fba83a206746161f, type: 2}
+  image: {fileID: 3940378079171114337}
 --- !u!114 &354182273822355494
 MonoBehaviour:
   m_ObjectHideFlags: 0

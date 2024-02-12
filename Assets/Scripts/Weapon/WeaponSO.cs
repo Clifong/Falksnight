@@ -5,11 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon", order = 1)]
 public class WeaponSO : ScriptableObject
 {
-    public GameObject equipmentInSphereGrid;
-    public GameObject equipmentInSphereGridForShop;
-    public GameObject equipmentInSphereAndName;
-    public Sprite equipmentImage;
+    public GameObject weaponInSphereGrid;
+    public GameObject weaponInSphereGridForShop;
+    public GameObject weaponInSphereAndName;
+    public Sprite weaponImage;
     public string name;
+    public int cost;
     [TextAreaAttribute]
     public string description;
     public int healthBoost;

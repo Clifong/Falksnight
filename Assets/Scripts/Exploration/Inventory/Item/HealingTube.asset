@@ -17,6 +17,7 @@ MonoBehaviour:
   itemWithGridImageAndName: {fileID: 139935078419346814, guid: 256f23e16d977b548bfcc6ecc7200a52, type: 3}
   itemImage: {fileID: 21300000, guid: cdad57bb677a0e64ab9a21192054c2e8, type: 3}
   name: Healing tube
+  cost: 10
   description: A healing tube from somewhere in the mind.
   recoverEnergy: 0
   recoverHealth: 10

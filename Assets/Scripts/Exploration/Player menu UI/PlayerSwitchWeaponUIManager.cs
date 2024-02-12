@@ -34,7 +34,7 @@ public class PlayerSwitchWeaponUIManager : MonoBehaviour
         }
         foreach (WeaponSO equipment in equipments)
         {
-            GameObject instantiatedGrid = Instantiate(equipment.equipmentInSphereGrid, panel);
+            GameObject instantiatedGrid = Instantiate(equipment.weaponInSphereGrid, panel);
             instantiatedGrid.GetComponent<WeaponIcon>().SetReference(instantiatedGrid);
             currentlyInstantiatedImages.Add(instantiatedGrid);
         }
@@ -43,7 +43,7 @@ public class PlayerSwitchWeaponUIManager : MonoBehaviour
     public void SetData(WeaponSO equipmentData){
         changeWeaponButton.gameObject.SetActive(true);
         referencedWeapon = equipmentData;
-        equipmentImage.sprite = equipmentData.equipmentImage;
+        equipmentImage.sprite = equipmentData.weaponImage;
         name.text = equipmentData.name;
         description.text = equipmentData.description;
         healthBoostText.text = "+" + equipmentData.healthBoost.ToString();

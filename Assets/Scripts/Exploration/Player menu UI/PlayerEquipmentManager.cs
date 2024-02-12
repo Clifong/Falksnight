@@ -24,7 +24,7 @@ public class PlayerEquipmentManager : MonoBehaviour
     }
 
     public void SetWeaponStats(WeaponSO weaponSO) {
-        imageIcon.sprite = weaponSO.equipmentImage;
+        imageIcon.sprite = weaponSO.weaponImage;
         name.text = weaponSO.name;
         healthBoostText.text = "+" + weaponSO.healthBoost.ToString();
         attackBoostText.text = "+" + weaponSO.attackBoost.ToString();

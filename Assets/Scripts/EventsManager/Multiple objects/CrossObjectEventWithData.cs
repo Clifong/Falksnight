@@ -8,7 +8,7 @@ public class CrossObjectEventWithData : ScriptableObject
     [SerializeField]
     private List<CrossObjecEventListenerWithData> listeners = new List<CrossObjecEventListenerWithData>();
 
-    public void TriggerEvent(Component sender, object data) {
+    public void TriggerEvent(Component sender, params object[] data) {
         foreach (CrossObjecEventListenerWithData listener in listeners)
         {
             listener.TriggerEvent(sender, data);

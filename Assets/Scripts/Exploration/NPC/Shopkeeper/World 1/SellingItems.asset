@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e432b0e0c1b7843b3d2bdb356760f2, type: 3}
   m_Name: SellingItems
   m_EditorClassIdentifier: 
-  itemsSold:
-  - {fileID: 11400000, guid: 0fe64ac7c7919a546aa553900da46bd8, type: 2}
-  equipmentSold:
-  - {fileID: 11400000, guid: 64922c7edc00141418f4de2e8bda418f, type: 2}
+  itemsSoldDict:
+    itemsSoldDict:
+      _serializedList:
+      - Key: {fileID: 11400000, guid: 0fe64ac7c7919a546aa553900da46bd8, type: 2}
+        Value: 30
+  weaponsSoldDict:
+    weaponsSoldDict:
+      _serializedList:
+      - Key: {fileID: 11400000, guid: 64922c7edc00141418f4de2e8bda418f, type: 2}
+        Value: 10

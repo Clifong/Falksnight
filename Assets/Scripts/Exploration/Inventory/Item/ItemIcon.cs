@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemIcon : MonoBehaviour
+public class ItemIcon : ShopIcons
 {
     [SerializeField]
     private ItemSO itemData;
@@ -14,9 +14,25 @@ public class ItemIcon : MonoBehaviour
         ItemUIManager.itemUIManager.SetData(itemData);
     }
 
-    public void SetDataForCrossObjectEventWithData() {
-        crossObjectEventWithData.TriggerEvent(this, itemData);
+    public override void SetDataForCrossObjectEventWithData() {
+        isPurchasing = !isPurchasing;
+        if (isPurchasing) {
+            SelectThis();
+            crossObjectEventWithData.TriggerEvent(this, itemData, true);
+        } else {
+            UnselectThis();
+            crossObjectEventWithData.TriggerEvent(this, itemData, false);
+        }
     }   
+
+    public override void ChangeBuyingForSingleBuy() {
+        isPurchasing = !isPurchasing;
+        if (isPurchasing) {
+            SelectThis();
+        } else {
+            UnselectThis();
+        }
+    }
 
     public void SetReference(GameObject reference) {
         this.reference = reference;
