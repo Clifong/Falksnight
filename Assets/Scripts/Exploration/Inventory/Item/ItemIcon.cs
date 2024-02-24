@@ -41,4 +41,8 @@ public class ItemIcon : ShopIcons
     public void SetItemReference() {
         ItemUIManager.itemUIManager.SetItemReference(itemData, reference);
     }
+
+    public void SendDataToDescriptionText() {
+        crossObjectEventWithData.TriggerEvent(this, itemData);
+    }
 }

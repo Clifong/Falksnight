@@ -50,6 +50,22 @@ public class InventoryManager : MonoBehaviour
         playerData.inventoryItems = allItems;
     }
 
+    public void AddNewItems(Component component, object data){
+        object[] temp = (object[]) data;
+        List<ItemSO> newItems = (List<ItemSO>) temp[0];
+        List<WeaponSO> newWeapons = (List<WeaponSO>) temp[1];
+        foreach (ItemSO item in newItems)
+        {
+            allItems.Add(item);
+        }
+        foreach (WeaponSO weapon in newWeapons)
+        {
+            allEquipment.Add(weapon);
+        }
+        playerData.inventoryItems = allItems;
+        playerData.equipmentItems = allEquipment;
+    }
+
     public void SendDataToInventoryUI(){
         ItemUIManager.itemUIManager.InstantiateImage(allItems);
         EquipmentUIManager.equipmentUIManager.InstantiateImage(allEquipment);

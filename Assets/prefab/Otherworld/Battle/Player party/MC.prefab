@@ -101,6 +101,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 2fcb42884bcb1b1498057951dbfa3545, type: 2}
   allPossibleActions: 0
+  playerDie: {fileID: 11400000, guid: 051540c131e3dba46ad2d3fbf4008967, type: 2}
+  selectThisPlayer: {fileID: 11400000, guid: 4755cca79bdb642448e0f9360eda61c3, type: 2}
+  spawnDamageText: {fileID: 11400000, guid: 126475b5dc19a574eb57757b0c5a2d98, type: 2}
+  changeSkillText: {fileID: 11400000, guid: cb467f8acd671d04bb86c3aa9f1f6ee7, type: 2}
+  attackAEnemy: {fileID: 11400000, guid: 30793d8a69bd3d64db55ea913871f024, type: 2}
+  attackAllEnemies: {fileID: 11400000, guid: 1d23f0f39b3a57043ad9b669d4fd4c08, type: 2}
 --- !u!50 &8570304448681357175
 Rigidbody2D:
   serializedVersion: 4

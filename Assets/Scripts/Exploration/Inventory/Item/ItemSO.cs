@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public GameObject itemWithGridImage;
+    public GameObject itemWithGridImageForBattle;
     public GameObject itemWithGridImageForShop;
     public GameObject itemWithGridImageAndName;
     public Sprite itemImage;

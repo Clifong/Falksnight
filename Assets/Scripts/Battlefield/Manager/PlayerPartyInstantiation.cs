@@ -6,6 +6,7 @@ public class PlayerPartyInstantiation : MonoBehaviour
 {
     public List<Transform> playerPosition;
     private List<PlayerSO> playerParty;
+    public CrossObjectEvent allPlayersSpawned;
 
     private void Start(){
         playerParty = PlayerPartyManager.playerPartyManager.ReturnPartyMembers();
@@ -13,6 +14,6 @@ public class PlayerPartyInstantiation : MonoBehaviour
         {
             Instantiate(playerParty[i].playerGameObject, playerPosition[i].position, Quaternion.identity);
         }
-        CharacterManager.characterManager.PlayerInstantiationComplete();
+       allPlayersSpawned.TriggerEvent();
     }
 }

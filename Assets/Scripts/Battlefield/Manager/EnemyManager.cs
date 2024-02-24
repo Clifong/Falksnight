@@ -4,53 +4,65 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public CrossObjectEvent winBattle;
-    public static EnemyManager enemyManager;
-    private Enemy enemy;
     private bool allDead;
     private List<Enemy> allEnemies = new List<Enemy>();
-    // Start is called before the first frame update
-    void Awake()
-    {
-        if (enemyManager != null){
-            Destroy(enemyManager);
-        }
-        enemyManager = this;
-    }
+    public CrossObjectEvent allEnemiesDied;
+    public CrossObjectEvent winBattle;
+    public CrossObjectEvent hideText;
+    public CrossObjectEventWithData getAllEnemies;
 
     public void EnemyInstantiationComplete(){
-        GameObject[] Enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        TargetingManagerEnemy.targetingManagerEnemy.SetSelectedEnemy(Enemies[0].GetComponent<Enemy>());
-        foreach (GameObject enemy in Enemies)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies[0].GetComponent<Enemy>().OnMouseDown();
+        foreach (GameObject enemy in enemies)
         {
             allEnemies.Add(enemy.GetComponent<Enemy>());
         }
+        allEnemies[0].OnMouseDown();
     }
 
-    public void SetSelectedEnemy(Enemy enemy){
-        this.enemy = enemy;
+    public void DamageAEnemy(Component component, object data ) {
+        object[] temp = (object[]) data;
+        int damage = (int) temp[0];
+        bool critOrNot = (bool) temp[1];
+        Player player = (Player) temp[2];
+        Enemy enemy = (Enemy) temp[3];
+        enemy.GetDamaged(damage, critOrNot, player);
     }
 
-    public Enemy GetSelectedEnemy(){
-        return this.enemy;
+    public void DamageAllEnemies(Component component, object data) {
+        object[] temp = (object[]) data;
+        int damage = (int) temp[0];
+        bool critOrNot = (bool) temp[1];
+        Player player = (Player) temp[2];
+        List<Enemy> copiedEnemies = new List<Enemy>(allEnemies);
+        foreach (Enemy enemy in copiedEnemies)
+        {   
+            if (enemy != null) {
+                enemy.GetDamaged(damage, critOrNot, player);
+            }
+        }
     }
 
-    public List<Enemy> ReturnAllEnemies() {
-        return allEnemies;
+    public void ReturnAllEnemies() {
+        getAllEnemies.TriggerEvent(this, allEnemies);
     }
 
     public void AllEnemiesAttack(){
         StartCoroutine(WaitForAMoment());
     }
 
-    public void UpdateList(Enemy enemy){
+    public void UpdateList(Component component, object data){
+        object[] temp = (object[]) data;
+        Enemy enemy = (Enemy) temp[0];
         allEnemies.Remove(enemy);
         if (allEnemies.Count == 0){
+            allEnemiesDied.TriggerEvent();
             EnemyPartyManager.enemyPartyManager.SetEnemyDead();
             StartCoroutine(WaitForAMomentWin());
         }
         else{
-            TargetingManagerEnemy.targetingManagerEnemy.SetSelectedEnemy(allEnemies[0]);
+            allEnemies[0].OnMouseDown();
         }
     }
 
@@ -65,14 +77,8 @@ public class EnemyManager : MonoBehaviour
             enemy.Attack();
             yield return new WaitForSeconds(1);
         }
-        if (!CharacterManager.characterManager.EveryoneDead()){
-            SkillTextboxManager.skillTextboxManager.HideText();
-            TurnManager.turnManager.ChangeTurn();
-            StopAllCoroutines();
-        }
-    }
-
-    public bool EveryoneDead(){
-        return allEnemies.Count == 0;
+        hideText.TriggerEvent();
+        TurnManager.turnManager.ChangeTurn();
+        StopAllCoroutines();
     }
 }

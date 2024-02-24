@@ -20,8 +20,14 @@ public abstract class Player: MonoBehaviour
     protected int currentCritRate;
     protected int currentCritDamage;
     protected SkillsSO skillsToUse;
-    protected Enemy targetEnemy;
     private SkillIcon skillIcon;
+    public CrossObjectEventWithData playerDie;
+    public CrossObjectEventWithData selectThisPlayer;
+    public CrossObjectEventWithData spawnDamageText;
+    public CrossObjectEventWithData changeSkillText;
+    public CrossObjectEventWithData attackAEnemy;
+    public CrossObjectEventWithData attackAllEnemies;
+    public Enemy targetEnemy;
 
     // Start is called before the first frame update
     protected virtual void Initialise()
@@ -65,21 +71,19 @@ public abstract class Player: MonoBehaviour
         if (currentHealth <= 0){
             Die();
         }
-        AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, trueDamage, false);
+        spawnDamageText.TriggerEvent(this, gameObject.transform.position, trueDamage, false);
     }
 
     public float GetCurrentHealthRatio(){
         return (float)currentHealth/(float)playerSO.baseHealth;
     }
 
-
     public virtual void OnMouseDown(){
-        TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(this);
+        selectThisPlayer.TriggerEvent(this, this);
     } 
 
-    public virtual void SetSkillsToUse(SkillsSO skillsSO, Enemy enemy, SkillIcon newSkillIcon){
+    public virtual void SetSkillsToUse(SkillsSO skillsSO, SkillIcon newSkillIcon){
         this.skillsToUse = skillsSO;
-        this.targetEnemy = enemy;
         if (skillIcon != null) {
             skillIcon.Switch();
             skillIcon = newSkillIcon;
@@ -121,22 +125,12 @@ public abstract class Player: MonoBehaviour
         }
 
         if (skillsToUse.allEnemy){
-            List<Enemy> allEnemies = EnemyManager.enemyManager.ReturnAllEnemies();
-            SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
-            foreach (Enemy enemy in allEnemies.ToArray())
-            {
-                enemy.GetDamaged(attackDamage, critOrNot, this);
-            }
+            attackAllEnemies.TriggerEvent(this, attackDamage, critOrNot, this);
         }
         else {
-            if (targetEnemy != null){
-                SkillTextboxManager.skillTextboxManager.ChangeText(skillsToUse.name);
-                targetEnemy.GetDamaged(attackDamage, critOrNot, this);
-            }
-            else{
-                currentAttack += skillsToUse.attack;
-            }
+            attackAEnemy.TriggerEvent(this, attackDamage, critOrNot, this, targetEnemy);
         }
+        changeSkillText.TriggerEvent(this, skillsToUse.name);
     }
 
     protected virtual void Guard(){
@@ -145,7 +139,7 @@ public abstract class Player: MonoBehaviour
 
     protected virtual void Die(){
         // anime.SetBool("die", true);
-        CharacterManager.characterManager.UpdateList(this);
+        playerDie.TriggerEvent(this, this);
         Destroy(gameObject);
     }
 }

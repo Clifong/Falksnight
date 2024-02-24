@@ -16,7 +16,11 @@ public class RewardsManager : MonoBehaviour
         else {
             rewardsManager = this;
         }
-        foreach (Player player in CharacterManager.characterManager.ReturnAllPlayers())
+    }
+
+    public void FillDictionary(Component component, object data) {
+        object[] temp = (object[]) data;
+        foreach (Player player in (List<Player>) temp[0])
         {
             allPlayerDict.Add(player.GetPlayerSO(), 0);
         }

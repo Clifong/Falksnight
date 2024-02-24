@@ -6,6 +6,7 @@ public class EnemyPartyInstantiation : MonoBehaviour
 {
     public List<Transform> enemyPosition;
     private List<EnemySO> enemyParty;
+    public CrossObjectEvent allEnemiesSpawned;
 
     private void Start(){
         enemyParty = EnemyPartyManager.enemyPartyManager.returnEnemyPartyMembers();
@@ -13,6 +14,6 @@ public class EnemyPartyInstantiation : MonoBehaviour
         {
             Instantiate(enemyParty[i].enemyGameObject, enemyPosition[i].position, Quaternion.identity);
         }
-        EnemyManager.enemyManager.EnemyInstantiationComplete();
+        allEnemiesSpawned.TriggerEvent();
     }
 }

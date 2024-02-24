@@ -938,3 +938,4 @@ MonoBehaviour:
   aboutSkillText: {fileID: 194447372621888076}
   skillName: {fileID: 7413045398218041705}
   image: {fileID: 9219735462868017136}
+  selectThisSkill: {fileID: 11400000, guid: 2607fd64d7491004dbb9456d393403d2, type: 2}

@@ -254,6 +254,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 607e30434d5ed014ca8304344fb6714e, type: 2}
+  spawnDamageText: {fileID: 11400000, guid: 126475b5dc19a574eb57757b0c5a2d98, type: 2}
+  attackPlayer: {fileID: 11400000, guid: 7d32a901135a9f74fb9ef621b73a4547, type: 2}
+  attackAllPlayers: {fileID: 11400000, guid: 90d06f82b73696d49b1041de8c29d833, type: 2}
+  enemyDied: {fileID: 11400000, guid: 702b2a880d80f3e4eb3bfbd8b44aeaa2, type: 2}
+  changeSkillText: {fileID: 11400000, guid: cb467f8acd671d04bb86c3aa9f1f6ee7, type: 2}
+  selectThisEnemy: {fileID: 11400000, guid: f21dd0dee0cd8db46acf37c6e7ca8072, type: 2}
 --- !u!50 &4785677776017641527
 Rigidbody2D:
   serializedVersion: 4

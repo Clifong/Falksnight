@@ -3,22 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterManager : MonoBehaviour{
-    public static CharacterManager characterManager;
+
     [SerializeField]
     private Player currentPlayerSelected;
+    private Enemy currentEnemySelected;
     [SerializeField]
     private int selectedAction = 0;
     [SerializeField]
     private int totalNumberOfPartyMembers;
     private List<Player> allPartyMembers = new List<Player>();
-
-    // Start is called before the first frame update
-    void Awake(){
-        if (characterManager != null){
-            Destroy(characterManager);
-        }    
-        characterManager = this;
-    }
+    public CrossObjectEvent allPlayersReady;
+    public CrossObjectEvent allPlayersDead;
+    public CrossObjectEventWithData returnAllPlayer;
 
     public void PlayerInstantiationComplete(){
         bool haveMC = false;
@@ -38,19 +34,24 @@ public class CharacterManager : MonoBehaviour{
             allPartyMembers.Add(mcPlayer);
         }
         if (haveMC) {
-            TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(mcPlayer);
+            mcPlayer.OnMouseDown();
         } else {
-            TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(pcPlayer);
+            pcPlayer.OnMouseDown();
         }
         totalNumberOfPartyMembers = allPartyMembers.Count;
     }
 
-    public void SetSelectedPlayer(Player player){
-        currentPlayerSelected = player;
+    public void SetSelectedPlayer(Component component, object data){
+        object[] temp = (object[]) data;
+        currentPlayerSelected = (Player) temp[0];
+        currentPlayerSelected.targetEnemy = currentEnemySelected;
     }
 
-    public void Attack(SkillsSO skillSO, SkillIcon skillIcon){
-        this.currentPlayerSelected.SetSkillsToUse(skillSO, EnemyManager.enemyManager.GetSelectedEnemy(), skillIcon);
+    public void Attack(Component component, object data){
+        object[] temp = (object[]) data;
+        SkillsSO skillSO = (SkillsSO) temp[0];
+        SkillIcon skillIcon = (SkillIcon) temp[1];
+        this.currentPlayerSelected.SetSkillsToUse(skillSO, skillIcon);
         this.currentPlayerSelected.SetAction(Actions.ATTACK);
         EnableAllPartyMembersToAct();
     }
@@ -69,12 +70,15 @@ public class CharacterManager : MonoBehaviour{
             } 
         }
         if (isReady) {
-            AttackUIManager.attackUIManager.AllPartyMembersActionsSelected();
+            allPlayersReady.TriggerEvent();
         }
     }
 
     public void DecreaseTotalNumberOfPartyMembers(){
         totalNumberOfPartyMembers -= 1;
+        if (totalNumberOfPartyMembers <= 0) {
+            allPlayersDead.TriggerEvent();
+        }
     }
 
     public void AllPartyMembersAct(){
@@ -88,41 +92,51 @@ public class CharacterManager : MonoBehaviour{
             player.Act();
             yield return new WaitForSeconds(1);
         }
-        if (!EnemyManager.enemyManager.EveryoneDead()){
-            TurnManager.turnManager.ChangeTurn();
-            EnemyManager.enemyManager.AllEnemiesAttack();
-            StopAllCoroutines();
-        }
+        TurnManager.turnManager.ChangeTurn();
+        StopAllCoroutines();
     }
 
-    public void UpdateList(Player player){
-        allPartyMembers.Remove(player);
+    public void UpdateList(Component component, object data){
+        object[] temp = (object[]) data;
+        allPartyMembers.Remove((Player) temp[0]);
         totalNumberOfPartyMembers = allPartyMembers.Count;
         if (totalNumberOfPartyMembers == 0){
             LevelManager.LoadLevel(this, "Lose");
         }
         else{
-            TargetingManagerParty.targetingManagerParty.SetSelectedPlayer(allPartyMembers[0]);
+            allPartyMembers[0].OnMouseDown();
         }
     }
 
-    public bool EveryoneDead(){
-        return allPartyMembers.Count == 0;
+    public void AttackAPlayer(Component component, object data) {
+        object[] temp = (object[]) data;
+        int randomInteger = Random.Range(0, totalNumberOfPartyMembers);
+        int damage = (int) temp[1];
+        allPartyMembers[randomInteger].GetDamaged(damage);
     }
 
-    public Player ReturnAPlayer(){
+    public void AttackAllPlayer(Component component, object data) {
+        object[] temp = (object[]) data;
+        int randomInteger = Random.Range(0, totalNumberOfPartyMembers);
+        int damage = (int) temp[1];
+        foreach (Player player in allPartyMembers)
+        {
+            player.GetDamaged(damage);
+        }
+    }
+
+    public void ReturnAllPlayers() {
         if (allPartyMembers.Count == 0){
-            return null;
+            returnAllPlayer.TriggerEvent(this, null);
+            return;
         }
-        int randomInteger = Random.Range(0, totalNumberOfPartyMembers); 
-        return allPartyMembers[randomInteger];
+        returnAllPlayer.TriggerEvent(this, allPartyMembers);
     }
 
-    public List<Player> ReturnAllPlayers() {
-        if (allPartyMembers.Count == 0){
-            return null;
-        }
-        return allPartyMembers;
+    public void SetTargetEnemy(Component component, object data ) {
+        object[] temp = (object[]) data;
+        currentEnemySelected = (Enemy) temp[0];
+        currentPlayerSelected.targetEnemy = currentEnemySelected;
     }
 
 }

@@ -6,7 +6,6 @@ using TMPro;
 
 public class AttackUIManager : MonoBehaviour
 {
-    public static AttackUIManager attackUIManager;
     // private Player playerSelected;
     public GameObject skillIcon;
     public GameObject attackButton;
@@ -22,10 +21,6 @@ public class AttackUIManager : MonoBehaviour
     
     void Awake()
     {
-        if (attackUIManager != null){
-            Destroy(attackUIManager);
-        }
-        attackUIManager = this;
         damageText = damageTextParent.GetComponentInChildren<TextMeshPro>();
     }
 
@@ -36,9 +31,11 @@ public class AttackUIManager : MonoBehaviour
     }
 
     //Responsible for targeting and skillIcons creation
-    public void SelectPlayer(Player player){
+    public void SelectPlayer(Component component, object data){
+        object[] temp = (object[]) data;
+        Player player = (Player) temp[0];
         currentPlayer = player;
-        PlayerSO playerSO = player.GetPlayerSO();
+        PlayerSO playerSO = currentPlayer.GetPlayerSO();
         foreach (GameObject spawnedSkillicon in spawnedSkillIcons)
         {
             Destroy(spawnedSkillicon);
@@ -57,7 +54,11 @@ public class AttackUIManager : MonoBehaviour
         attackButton.SetActive(true);
     }
 
-    public void InstantiateDamageText(Vector2 pos, int damage, bool critOrNot){
+    public void SpawnDamageText(Component component, object data){
+        object[] temp = (object[]) data;
+        Vector3 pos = (Vector3) temp[0];
+        int damage = (int) temp[1];
+        bool critOrNot = (bool) temp[2];
         if (critOrNot) {
             damageText.color = new Color(1,0,0,1);
         }
@@ -66,6 +67,5 @@ public class AttackUIManager : MonoBehaviour
         }
         damageText.text = damage.ToString();
         Instantiate(damageTextParent, pos, Quaternion.identity);
-    }
-    
+    }    
 }

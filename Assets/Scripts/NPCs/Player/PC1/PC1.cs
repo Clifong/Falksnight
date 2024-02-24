@@ -12,6 +12,5 @@ public class PC1 : Player
 
     protected override void Attack(){
         base.Attack();
-        Debug.Log("Called super: " + targetEnemy);
     }
 }

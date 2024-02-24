@@ -17,6 +17,7 @@ public class SkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private TextMeshProUGUI skillName;
     public Image image;
     private bool unselected = true;
+    public CrossObjectEventWithData selectThisSkill;
 
     private void Start() {
         skillName.text = skillSO.name;
@@ -27,7 +28,7 @@ public class SkillIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
 
     public void TellCharacterToAttackEnemy(){
-        CharacterManager.characterManager.Attack(this.skillSO, this);
+        selectThisSkill.TriggerEvent(this, this.skillSO, this);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

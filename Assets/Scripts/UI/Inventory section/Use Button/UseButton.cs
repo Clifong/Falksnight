@@ -4,7 +4,4 @@ using UnityEngine;
 
 public class UseButton : MonoBehaviour
 {
-    public void Consume() {
-        ItemUIManager.itemUIManager.Consume();
-    }
 }

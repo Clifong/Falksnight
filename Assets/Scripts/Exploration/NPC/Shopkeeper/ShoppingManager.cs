@@ -10,6 +10,7 @@ public class ShoppingManager : MonoBehaviour
     public CrossObjectEvent canPurchase;
     public CrossObjectEvent cannotPurchase;
     public CrossObjectEventWithData SendDataToUI;
+    public CrossObjectEventWithData actuallyBuyingTheStuff;
     public ShopTotalCostManager adjustUIWhenChangingBoughtStuff;
     public ShopkeeperCanvasManager shopkeeperCanvasManager;
     private int totalCost = 0;
@@ -97,6 +98,7 @@ public class ShoppingManager : MonoBehaviour
 
     public void DeleteBoughtStuffIcons() {
         shopkeeperCanvasManager.DeleteIcons(allShopIcons);
+        actuallyBuyingTheStuff.TriggerEvent(this, stackOfItemsBought, stackOfWeaponsBought);
         ResetData();
     }
     

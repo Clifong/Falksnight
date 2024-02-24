@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 4397174ede90cb341964eee919e4e5cf, type: 2}
+  spawnDamageText: {fileID: 11400000, guid: 126475b5dc19a574eb57757b0c5a2d98, type: 2}
 --- !u!1 &5723263660106540298
 GameObject:
   m_ObjectHideFlags: 0

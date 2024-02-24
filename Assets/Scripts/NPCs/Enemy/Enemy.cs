@@ -14,6 +14,12 @@ public abstract class Enemy : MonoBehaviour
     protected int currentCritDamage;
     protected int enemyExp;
     protected EnemyUICanvas enemyUICanvas;
+    public CrossObjectEventWithData spawnDamageText;
+    public CrossObjectEventWithData attackPlayer;
+    public CrossObjectEventWithData attackAllPlayers;
+    public CrossObjectEventWithData enemyDied;
+    public CrossObjectEventWithData changeSkillText;
+    public CrossObjectEventWithData selectThisEnemy;
 
     // Start is called before the first frame update
     protected virtual void Initialise()
@@ -37,29 +43,19 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public virtual void OnMouseDown(){
-        TargetingManagerEnemy.targetingManagerEnemy.SetSelectedEnemy(this);
+        selectThisEnemy.TriggerEvent(this, this);
     } 
 
     //Want to add flexibility to attack style
     public virtual void Attack(){
         int randomInteger = Random.Range(0, enemySO.skillSet.Count); 
         if (enemySO.skillSet[randomInteger].allEnemy) {
-            List<Player> allPlayer = CharacterManager.characterManager.ReturnAllPlayers();
-            foreach (Player player in allPlayer.ToArray())
-            {
-                if (player != null){
-                    SkillTextboxManager.skillTextboxManager.ChangeText(enemySO.skillSet[randomInteger].name);
-                    player.GetDamaged(enemySO.skillSet[randomInteger].attack + currentAttack);
-                }
-            }
+            attackAllPlayers.TriggerEvent(this, this, enemySO.skillSet[randomInteger].attack + currentAttack, enemySO.skillSet[randomInteger].name);
         }
         else {
-            Player attackPlayer = CharacterManager.characterManager.ReturnAPlayer();
-            if (attackPlayer != null){
-                SkillTextboxManager.skillTextboxManager.ChangeText(enemySO.skillSet[randomInteger].name);
-                attackPlayer.GetDamaged(enemySO.skillSet[randomInteger].attack + currentAttack);
-            }
+            attackPlayer.TriggerEvent(this, this, enemySO.skillSet[randomInteger].attack + currentAttack, enemySO.skillSet[randomInteger].name);
         }
+        changeSkillText.TriggerEvent(this, enemySO.skillSet[randomInteger].name);
     }
 
     public virtual void GetDamaged(int damage, bool critOrNot, Player player){
@@ -67,11 +63,11 @@ public abstract class Enemy : MonoBehaviour
         if (currentHealth <= 0){
             Die(player.GetPlayerSO());
         }
-        AttackUIManager.attackUIManager.InstantiateDamageText(gameObject.transform.position, damage, critOrNot);
+        spawnDamageText.TriggerEvent(this, gameObject.transform.position, damage, critOrNot);
     }
 
     protected virtual void Die(PlayerSO playerSO){
-        EnemyManager.enemyManager.UpdateList(this);
+        enemyDied.TriggerEvent(this, this);
         RewardsManager.rewardsManager.AddTempItem(enemySO.itemDrop);
         RewardsManager.rewardsManager.AddMoney(enemySO.returnRandomMoney());
         RewardsManager.rewardsManager.AddExp(playerSO, enemyExp);

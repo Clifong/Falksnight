@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85c8f54cedbd04498f88780146b0cff, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
+  dead: 0
   enemies:
+  - {fileID: 11400000, guid: 607e30434d5ed014ca8304344fb6714e, type: 2}
   - {fileID: 11400000, guid: 607e30434d5ed014ca8304344fb6714e, type: 2}

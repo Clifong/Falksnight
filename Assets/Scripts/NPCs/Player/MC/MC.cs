@@ -12,6 +12,5 @@ public class MC : Player
 
     protected override void Attack(){
         base.Attack();
-        Debug.Log("Called super: " + targetEnemy);
     }
 }
