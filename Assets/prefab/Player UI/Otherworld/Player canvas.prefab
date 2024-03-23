@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c701afe2aef9869419396ec6f5d04280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: ea0f0825adebcb345930c3b8c23cf9be, type: 2}
+  gameEvent: {fileID: 11400000, guid: 47e2ccb9bd3f25f468fc8f7ccf0360ae, type: 2}
   responseOnTrigger:
     m_PersistentCalls:
       m_Calls:

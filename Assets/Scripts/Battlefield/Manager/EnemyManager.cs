@@ -10,10 +10,10 @@ public class EnemyManager : MonoBehaviour
     public CrossObjectEvent winBattle;
     public CrossObjectEvent hideText;
     public CrossObjectEventWithData getAllEnemies;
+    public EnemyPartySO enemyPartySO;
 
     public void EnemyInstantiationComplete(){
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        enemies[0].GetComponent<Enemy>().OnMouseDown();
         foreach (GameObject enemy in enemies)
         {
             allEnemies.Add(enemy.GetComponent<Enemy>());
@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour
         allEnemies.Remove(enemy);
         if (allEnemies.Count == 0){
             allEnemiesDied.TriggerEvent();
-            EnemyPartyManager.enemyPartyManager.SetEnemyDead();
+            enemyPartySO.SetEnemyDead();
             StartCoroutine(WaitForAMomentWin());
         }
         else{

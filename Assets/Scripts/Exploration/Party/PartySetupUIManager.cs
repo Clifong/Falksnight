@@ -10,6 +10,7 @@ public class PartySetupUIManager : MonoBehaviour
     public Canvas partySetupUICanvas;
     private List<GameObject> currentlyInstantiatedImages = new List<GameObject>();
     public GameObject playerIcon;
+    public PlayerPartySO playerPartySO;
     void Start()
     {
         if (partySetupUIManager != null){
@@ -29,10 +30,10 @@ public class PartySetupUIManager : MonoBehaviour
         {
             reserveParty.Add(child.gameObject.GetComponent<PlayerIcon>().GetPlayerSO());
         }
-        PlayerPartyManager.playerPartyManager.ModifyPartySetup(activeParty, reserveParty);
+        playerPartySO.ModifyPartySetup(activeParty, reserveParty);
     }
 
-    public void InstantiatePartyIcon(List<PlayerSO> activePartyInfo, List<PlayerSO> reservePartyInfo){
+    public void InstantiatePartyIcon(){
         partySetupUICanvas.enabled = !partySetupUICanvas.enabled;
         if (partySetupUICanvas.enabled == false) {
             OnDisableCanvas();
@@ -41,14 +42,14 @@ public class PartySetupUIManager : MonoBehaviour
             foreach (GameObject icon in currentlyInstantiatedImages){
                 Destroy(icon);
             }
-            foreach (PlayerSO playerSO in activePartyInfo)
+            foreach (PlayerSO playerSO in playerPartySO.activeParty)
             {
                 GameObject instantiatedPlayerIcon = Instantiate(playerIcon, activePanel);
                 PlayerIcon playerIconScript = instantiatedPlayerIcon.GetComponent<PlayerIcon>();
                 currentlyInstantiatedImages.Add(instantiatedPlayerIcon);
                 playerIconScript.SetField(playerSO);
             }
-            foreach (PlayerSO playerSO in reservePartyInfo)
+            foreach (PlayerSO playerSO in playerPartySO.reserveParty)
             {
                 GameObject instantiatedPlayerIcon = Instantiate(playerIcon, reservePanel);
                 PlayerIcon playerIconScript = instantiatedPlayerIcon.GetComponent<PlayerIcon>();

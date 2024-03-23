@@ -10,7 +10,8 @@ using UnityEngine.InputSystem;
 
 public class CutsceneTextManager : MonoBehaviour
 {
-    public TextAsset inkJson;
+    public Canvas sceneCanvas;
+    public List<TextAsset> inkJson;
     public Canvas choiceCanvas;
     [SerializeField]
     private GameObject[] choices;
@@ -20,11 +21,12 @@ public class CutsceneTextManager : MonoBehaviour
     private Story currentStory;
     private bool completeText = false;
     private string fullText = "";
-    public UnityEvent cutsceneEnd;
+    public List<UnityEvent> cutsceneEnd;
+    private int counter = 0;
     
     void Start()
     {
-        currentStory = new Story(inkJson.text);
+        currentStory = new Story(inkJson[counter].text);
         choiceCanvas.enabled = false;
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
@@ -52,15 +54,20 @@ public class CutsceneTextManager : MonoBehaviour
     }
 
     public void StartDialogue() {
+        currentStory = new Story(inkJson[counter].text);
         cutsceneIsPlaying = true;
+        sceneCanvas.enabled = true;
         ContinueStory();
     }
 
     private void ExitDialogue() {
         HideChoices();
         cutsceneIsPlaying = false;
-        cutsceneEnd?.Invoke();
-        this.enabled = false;
+        cutsceneEnd[counter]?.Invoke();
+        counter++;
+        if (counter >= inkJson.Count) {
+            this.enabled = false;
+        }
     }
 
     private void ContinueStory() {

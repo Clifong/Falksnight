@@ -16,6 +16,7 @@ public class PlayerMenuManager : MonoBehaviour
     public TextMeshProUGUI critDamageText;
     public TextMeshProUGUI expNeededText;
     public TextMeshProUGUI levelText;
+    public PlayerPartySO playerPartySO;
     public Slider expSlider;
     private PlayerSO currentPlayer;
     private List<GameObject> currentlyInstantiatedIcons = new List<GameObject>();
@@ -34,7 +35,7 @@ public class PlayerMenuManager : MonoBehaviour
         {
             Destroy(icon);
         }
-        List<PlayerSO> allPartyMembers = PlayerPartyManager.playerPartyManager.ReturnAllPartyMembers();
+        List<PlayerSO> allPartyMembers = playerPartySO.ReturnAllPartyMembers();
         if (allPartyMembers.Count > 0) {
             SetPlayerStats(allPartyMembers[0]);
         }

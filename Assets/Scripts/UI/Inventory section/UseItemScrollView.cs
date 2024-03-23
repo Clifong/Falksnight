@@ -7,9 +7,10 @@ public class UseItemScrollView : MonoBehaviour
     public Transform viewPoint;
     public GameObject playerIcon;
     private List<GameObject> currentlyInstantiatedImages = new List<GameObject>();
+    public PlayerPartySO playerPartySO;
     
     public void EnableObject() {
-        List<PlayerSO> partyInfo = PlayerPartyManager.playerPartyManager.ReturnPartyMembers();
+        List<PlayerSO> partyInfo = playerPartySO.ReturnPartyMembers();
         foreach (GameObject icon in currentlyInstantiatedImages){
             Destroy(icon);
         }

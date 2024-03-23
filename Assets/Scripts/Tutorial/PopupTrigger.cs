@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PopupTrigger : MonoBehaviour
 {
+    public CrossObjectEvent interactingWithTriggerEvent;
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "MC") {
-            TutorialManager.tutorialManager.ShowPopup();
+            interactingWithTriggerEvent.TriggerEvent();
             Destroy(this.gameObject);
         }
     }

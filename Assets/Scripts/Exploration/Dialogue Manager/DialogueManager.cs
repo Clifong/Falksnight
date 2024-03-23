@@ -6,10 +6,10 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using AYellowpaper.SerializedCollections;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager dialogueManager;
     public Canvas dialogueCanvas;
     public TextMeshProUGUI name;
     public TextMeshProUGUI dialogueText;
@@ -18,19 +18,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
-    [SerializeField]
     private bool choiceMaking;
-    public CrossObjectEvent dialogueStart;
     public CrossObjectEvent dialogueEnd;
-
-    private void Awake() {
-        if (dialogueManager != null) {
-            Destroy(dialogueManager);
-        }
-        else {
-            dialogueManager = this;
-        }
-    }
+    public CrossObjectEvent specialDialogueEnd;
+    public Image dialgoueCharacterImage;
+    private EmotionTagToImageDictionary emotionTagToImageDictionary;
 
     private void Start() {
         dialogueIsPlaying = false;
@@ -53,13 +45,20 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(TextAsset inkJson, string name) {
+    public void StartDialogue(Component component, object data) {
+        object[] temp = (object[]) data;
+        TextAsset inkJson = (TextAsset) temp[0];
+        string name = (string) temp[1];
+        EmotionTagToImageDictionary emotionTagToImageDictionary = (EmotionTagToImageDictionary) temp[2];
         this.name.text = name;
-        dialogueStart.TriggerEvent();
+        this.emotionTagToImageDictionary = emotionTagToImageDictionary;
         currentStory = new Story(inkJson.text);
         dialogueIsPlaying = true;
         dialogueCanvas.enabled = true;
         choiceMaking = false;
+        currentStory.BindExternalFunction("ExitDialogueEventSpecial", () => {
+            ExitDialogueEventSpecial();
+        });
         ContinueStory();
     }
 
@@ -70,9 +69,17 @@ public class DialogueManager : MonoBehaviour
         dialogueEnd.TriggerEvent();
     }
 
+    private void ExitDialogueEventSpecial() {
+        specialDialogueEnd.TriggerEvent();
+    }
+
     private void ContinueStory() {
         if (currentStory.canContinue) {
             dialogueText.text = currentStory.Continue();
+            List<string> tags = currentStory.currentTags;
+            if (tags.Count > 0) {
+                dialgoueCharacterImage.sprite = emotionTagToImageDictionary.GetValue(tags[0]);
+            }
             if (currentStory.currentChoices.Count != 0) {
                 DisplayChoices();
             }
@@ -99,8 +106,8 @@ public class DialogueManager : MonoBehaviour
     public void MakeChoice(int index) {
         HideChoices();
         currentStory.ChooseChoiceIndex(index);
-        ContinueStory();
         choiceMaking = false;
+        ContinueStory();
     }
 
     public void HideChoices() {

@@ -31,7 +31,6 @@ public static class LevelManager{
       if (name != "Lose") {
         previousLevel = SceneManager.GetActiveScene().name;
       }
-      DataPersistenceManager.dataPersistenceManager.SaveGame();
       DataPersistenceManager.dataPersistenceManager.setDataFileName(previousLevel);
       mono.StartCoroutine(LevelManager.LoadScene(name));
     }

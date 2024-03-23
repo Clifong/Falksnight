@@ -155,7 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9b6179e70a896f4c8fc808528ac3be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJson: {fileID: 4900000, guid: a63abe7cf0bcc13439bc79962a6eb43a, type: 3}
+  inkJson:
+  - {fileID: 4900000, guid: a63abe7cf0bcc13439bc79962a6eb43a, type: 3}
   choiceCanvas: {fileID: 1076247870}
   choices:
   - {fileID: 529006248}
@@ -163,7 +164,7 @@ MonoBehaviour:
   - {fileID: 198375378}
   cutsceneText: {fileID: 1695796504}
   cutsceneEnd:
-    m_PersistentCalls:
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 749542687}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine

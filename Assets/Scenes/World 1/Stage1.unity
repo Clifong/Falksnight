@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   explorationEnemySO: {fileID: 11400000, guid: 57728e70d1e6cf44d9e2b040e365ca2e, type: 2}
+  enemyPartySO: {fileID: 11400000, guid: 49a8c451ce8595f47ac7ae3eee7031fe, type: 2}
 --- !u!50 &130009978
 Rigidbody2D:
   serializedVersion: 4
@@ -735,6 +736,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1298386734, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
+      propertyPath: playerPartySO
+      value: 
+      objectReference: {fileID: 11400000, guid: 060ef27c161a86b45b764e6b75e02e18, type: 2}
     - target: {fileID: 1993266354, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -753,7 +758,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2364568025293521025, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1540837.1
+      value: 1746487
       objectReference: {fileID: 0}
     - target: {fileID: 3976398936221579129, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -859,52 +864,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Manager '
       objectReference: {fileID: 0}
+    - target: {fileID: 7899409458567312492, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
+      propertyPath: enemyPartyInfo.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
---- !u!1 &1406429044 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7899409458124087383, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
-  m_PrefabInstance: {fileID: 1406429043}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1406429045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406429044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c701afe2aef9869419396ec6f5d04280, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 105e26d55b4288a4f8ad889a16d90bae, type: 2}
-  responseOnTrigger:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1406429046}
-        m_TargetAssemblyTypeName: ItemUIManager, Assembly-CSharp
-        m_MethodName: Consume
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1406429046 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7899409458124087382, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
-  m_PrefabInstance: {fileID: 1406429043}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406429044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33a3b22b7cd3074fbb942544a6b0089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1573919772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1662841914, guid: 6a6149e49179b5149a0782164c2061a2, type: 3}

@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerPartyInstantiation : MonoBehaviour
 {
     public List<Transform> playerPosition;
-    private List<PlayerSO> playerParty;
+    public PlayerPartySO playerParty;
     public CrossObjectEvent allPlayersSpawned;
 
     private void Start(){
-        playerParty = PlayerPartyManager.playerPartyManager.ReturnPartyMembers();
-        for (int i = 0; i < playerParty.Count; i++)
+        for (int i = 0; i < playerParty.activeParty.Count; i++)
         {
-            Instantiate(playerParty[i].playerGameObject, playerPosition[i].position, Quaternion.identity);
+            Instantiate(playerParty.activeParty[i].playerGameObject, playerPosition[i].position, Quaternion.identity);
         }
-       allPlayersSpawned.TriggerEvent();
+        Debug.Log("PLAYERS");
+        allPlayersSpawned.TriggerEvent();
     }
 }

@@ -13,6 +13,7 @@ public class ConfidantUIManager : MonoBehaviour
     public Transform contentView;
     public Canvas confidantCanvas;
     public Image characterImage;
+    public PlayerPartySO playerPartySO;
     private List<GameObject> currentlyInstantiatedIcons = new List<GameObject>();
 
     // Start is called before the first frame update
@@ -35,7 +36,7 @@ public class ConfidantUIManager : MonoBehaviour
         {
             Destroy(icon);
         }
-        List<PlayerSO> allPartyMembers = PlayerPartyManager.playerPartyManager.ReturnAllPartyMembers();
+        List<PlayerSO> allPartyMembers = playerPartySO.ReturnAllPartyMembers();
         SetConfidantInfo(allPartyMembers[0]);
         foreach (PlayerSO playerSO in allPartyMembers)
         {

@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7dfe5accb5941241ae836ed5590a8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactingWithTriggerEvent: {fileID: 11400000, guid: ea7389bec2089c84e85746ff764395ee, type: 2}
 --- !u!50 &872385712
 Rigidbody2D:
   serializedVersion: 4
@@ -10615,6 +10616,50 @@ PrefabInstance:
       objectReference: {fileID: 1154561232}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 703792cc550a9054ba8ab4eb43d26b2e, type: 3}
+--- !u!1 &2243045108075673533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2243045107743771576, guid: 703792cc550a9054ba8ab4eb43d26b2e, type: 3}
+  m_PrefabInstance: {fileID: 2243045108075673532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2243045108075673534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243045108075673533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c701afe2aef9869419396ec6f5d04280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: ea7389bec2089c84e85746ff764395ee, type: 2}
+  responseOnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2243045108075673535}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: ShowPopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2243045108075673535 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2243045107743771578, guid: 703792cc550a9054ba8ab4eb43d26b2e, type: 3}
+  m_PrefabInstance: {fileID: 2243045108075673532}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243045108075673533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac8adc59de5bc743a5eaa529d07f43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2861373305106999407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10850,6 +10895,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3641661959686464155, guid: 3ae7689498437da41a3a24dfa3f0acfb, type: 3}
+      propertyPath: interactingWithTriggerEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: ea7389bec2089c84e85746ff764395ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae7689498437da41a3a24dfa3f0acfb, type: 3}
 --- !u!1001 &4168258414278214521

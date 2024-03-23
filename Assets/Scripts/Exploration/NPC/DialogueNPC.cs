@@ -1,22 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
+
+[System.Serializable]
+public class EmotionTagToImageDictionary
+{
+    [SerializedDictionary("Emotion keys", "Sprite")]
+    public SerializedDictionary<string, Sprite> expressionImage;
+
+    public Sprite GetValue(string key) {
+        return expressionImage[key];
+    }
+}
 
 public class DialogueNPC : MonoBehaviour
 {
     [SerializeField]
-    private List<TextAsset> dialogueTextList;
+    public List<TextAsset> dialogueTextList;
+    public EmotionTagToImageDictionary expressionImage; 
     [SerializeField]
     private string name;
     private NPC npc;
     private int index = 0;
+    public CrossObjectEventWithData startDialogue;
 
     void Start() {
         npc = GetComponent<NPC>();
     }
 
     public void PlayDialogue() {
-        DialogueManager.dialogueManager.StartDialogue(dialogueTextList[index], name);
+        startDialogue.TriggerEvent(this, dialogueTextList[index], name, expressionImage);
     }
 
     public void PlayDialogueAndIncrementIndex() {

@@ -8,6 +8,7 @@ public class Portal : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other){
         if (other.gameObject.tag == "MC"){
+            DataPersistenceManager.dataPersistenceManager.SaveGame();
             LevelManager.LoadLevel(this, nextLevel);
         }
     }

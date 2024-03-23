@@ -158,6 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   explorationEnemySO: {fileID: 11400000, guid: 6e1d5cfae2ebb3646837e3cffded8ce0, type: 2}
+  enemyPartySO: {fileID: 11400000, guid: 49a8c451ce8595f47ac7ae3eee7031fe, type: 2}
 --- !u!50 &321387940
 Rigidbody2D:
   serializedVersion: 4
@@ -12033,7 +12034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2364568025293521025, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1275613.5
+      value: 1277484.2
       objectReference: {fileID: 0}
     - target: {fileID: 3976398936221579129, guid: eb6cf72eb7dbf394e9d9536fa1cb928c, type: 3}
       propertyPath: m_AnchorMax.x

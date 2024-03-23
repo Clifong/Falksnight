@@ -26,7 +26,6 @@ public class InventoryManager : MonoBehaviour
         if (InventoryManager.counter == 10){
             InventoryManager.counter = 1;
         }
-        DontDestroyOnLoad(this.gameObject);
         allItems = playerData.inventoryItems;
         allEquipment = playerData.equipmentItems;
         allConfidantItems = playerData.confidantItems;
