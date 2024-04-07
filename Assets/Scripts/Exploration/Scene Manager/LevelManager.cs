@@ -31,8 +31,11 @@ public static class LevelManager{
       if (name != "Lose") {
         previousLevel = SceneManager.GetActiveScene().name;
       }
-      DataPersistenceManager.dataPersistenceManager.setDataFileName(previousLevel);
       mono.StartCoroutine(LevelManager.LoadScene(name));
+    }
+
+    public static string GetCurrentLevel() {
+      return SceneManager.GetActiveScene().name;
     }
 
     public static void WinBattle(MonoBehaviour mono){
@@ -48,7 +51,9 @@ public static class LevelManager{
             yield return null;
         }
 
-        loadingComplete.TriggerEvent();
+        if (loadingComplete != null) {
+          loadingComplete.TriggerEvent();
+        }
 
         // DataPersistenceManager.dataPersistenceManager.LoadGame();
     }

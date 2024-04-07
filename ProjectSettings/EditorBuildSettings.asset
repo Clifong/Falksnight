@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/World 1/Stage6.unity
     guid: 1e36d0bb3b9cb874fa52966fca66d20d
+  - enabled: 1
+    path: Assets/Scenes/Cutscenes/World 1 ending/World1EndingCutscene.unity
+    guid: cddae37cdea07fd4087cabbb8c80ba39
   m_configObjects: {}

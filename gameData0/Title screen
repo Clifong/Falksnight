@@ -1,0 +1,25 @@
+{
+    "path": "",
+    "money": 0,
+    "playerPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "explorationEnemyDict": {
+        "keys": [],
+        "values": []
+    },
+    "chestOpenedDict": {
+        "keys": [],
+        "values": []
+    },
+    "itemTakenDict": {
+        "keys": [],
+        "values": []
+    },
+    "ebonActivatedDict": {
+        "keys": [],
+        "values": []
+    }
+}
